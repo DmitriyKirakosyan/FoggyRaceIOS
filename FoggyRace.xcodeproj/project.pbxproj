@@ -1,0 +1,484 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		327B674E1A0A1EF5006B2745 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B674D1A0A1EF5006B2745 /* AppDelegate.swift */; };
+		327B67501A0A1EF5006B2745 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B674F1A0A1EF5006B2745 /* ViewController.swift */; };
+		327B67531A0A1EF5006B2745 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 327B67511A0A1EF5006B2745 /* Main.storyboard */; };
+		327B67551A0A1EF5006B2745 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 327B67541A0A1EF5006B2745 /* Images.xcassets */; };
+		327B67581A0A1EF5006B2745 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 327B67561A0A1EF5006B2745 /* LaunchScreen.xib */; };
+		327B67641A0A1EF5006B2745 /* FoggyRaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B67631A0A1EF5006B2745 /* FoggyRaceTests.swift */; };
+		327B67741A0A4167006B2745 /* brick.png in Resources */ = {isa = PBXBuildFile; fileRef = 327B676E1A0A4167006B2745 /* brick.png */; };
+		327B67751A0A4167006B2745 /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = 327B676F1A0A4167006B2745 /* car.png */; };
+		327B67761A0A4167006B2745 /* drift_racing-wide.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 327B67701A0A4167006B2745 /* drift_racing-wide.jpg */; };
+		327B67771A0A4167006B2745 /* fog.png in Resources */ = {isa = PBXBuildFile; fileRef = 327B67711A0A4167006B2745 /* fog.png */; };
+		327B67781A0A4167006B2745 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 327B67721A0A4167006B2745 /* line.png */; };
+		327B67791A0A4167006B2745 /* road.png in Resources */ = {isa = PBXBuildFile; fileRef = 327B67731A0A4167006B2745 /* road.png */; };
+		327B677B1A0A99D4006B2745 /* FogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B677A1A0A99D4006B2745 /* FogView.swift */; };
+		327B679B1A0BFC5D006B2745 /* ObstacleBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B679A1A0BFC5D006B2745 /* ObstacleBehaviour.swift */; };
+		32B3D8731A4AF4E400D3B563 /* ObstacleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B3D8721A4AF4E400D3B563 /* ObstacleView.swift */; };
+		32B3D8771A556D8400D3B563 /* RoadLinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B3D8761A556D8400D3B563 /* RoadLinesView.swift */; };
+		32DB06621A27233600F2D796 /* 6041_Stone.png in Resources */ = {isa = PBXBuildFile; fileRef = 32DB06611A27233600F2D796 /* 6041_Stone.png */; };
+		32F11E841A0DF94B00CDE804 /* backstage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 32F11E831A0DF94B00CDE804 /* backstage.mp3 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		327B675E1A0A1EF5006B2745 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 327B67401A0A1EF5006B2745 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 327B67471A0A1EF5006B2745;
+			remoteInfo = FoggyRace;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		327B67481A0A1EF5006B2745 /* FoggyRace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoggyRace.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		327B674C1A0A1EF5006B2745 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		327B674D1A0A1EF5006B2745 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		327B674F1A0A1EF5006B2745 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		327B67521A0A1EF5006B2745 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		327B67541A0A1EF5006B2745 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		327B67571A0A1EF5006B2745 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		327B675D1A0A1EF5006B2745 /* FoggyRaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoggyRaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		327B67621A0A1EF5006B2745 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		327B67631A0A1EF5006B2745 /* FoggyRaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoggyRaceTests.swift; sourceTree = "<group>"; };
+		327B676E1A0A4167006B2745 /* brick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick.png; sourceTree = "<group>"; };
+		327B676F1A0A4167006B2745 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
+		327B67701A0A4167006B2745 /* drift_racing-wide.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "drift_racing-wide.jpg"; sourceTree = "<group>"; };
+		327B67711A0A4167006B2745 /* fog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fog.png; sourceTree = "<group>"; };
+		327B67721A0A4167006B2745 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
+		327B67731A0A4167006B2745 /* road.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = road.png; sourceTree = "<group>"; };
+		327B677A1A0A99D4006B2745 /* FogView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FogView.swift; sourceTree = "<group>"; };
+		327B679A1A0BFC5D006B2745 /* ObstacleBehaviour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObstacleBehaviour.swift; sourceTree = "<group>"; };
+		32B3D8721A4AF4E400D3B563 /* ObstacleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObstacleView.swift; sourceTree = "<group>"; };
+		32B3D8741A4D8FEC00D3B563 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		32B3D8761A556D8400D3B563 /* RoadLinesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoadLinesView.swift; sourceTree = "<group>"; };
+		32DB06611A27233600F2D796 /* 6041_Stone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6041_Stone.png; sourceTree = "<group>"; };
+		32F11E831A0DF94B00CDE804 /* backstage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backstage.mp3; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		327B67451A0A1EF5006B2745 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		327B675A1A0A1EF5006B2745 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		327B673F1A0A1EF5006B2745 = {
+			isa = PBXGroup;
+			children = (
+				32B3D8741A4D8FEC00D3B563 /* QuartzCore.framework */,
+				327B674A1A0A1EF5006B2745 /* FoggyRace */,
+				327B67601A0A1EF5006B2745 /* FoggyRaceTests */,
+				327B67491A0A1EF5006B2745 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		327B67491A0A1EF5006B2745 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				327B67481A0A1EF5006B2745 /* FoggyRace.app */,
+				327B675D1A0A1EF5006B2745 /* FoggyRaceTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		327B674A1A0A1EF5006B2745 /* FoggyRace */ = {
+			isa = PBXGroup;
+			children = (
+				327B676D1A0A4167006B2745 /* Resources */,
+				327B674D1A0A1EF5006B2745 /* AppDelegate.swift */,
+				327B674F1A0A1EF5006B2745 /* ViewController.swift */,
+				327B677A1A0A99D4006B2745 /* FogView.swift */,
+				327B679A1A0BFC5D006B2745 /* ObstacleBehaviour.swift */,
+				32B3D8761A556D8400D3B563 /* RoadLinesView.swift */,
+				32B3D8721A4AF4E400D3B563 /* ObstacleView.swift */,
+				327B67511A0A1EF5006B2745 /* Main.storyboard */,
+				327B67541A0A1EF5006B2745 /* Images.xcassets */,
+				327B67561A0A1EF5006B2745 /* LaunchScreen.xib */,
+				327B674B1A0A1EF5006B2745 /* Supporting Files */,
+			);
+			path = FoggyRace;
+			sourceTree = "<group>";
+		};
+		327B674B1A0A1EF5006B2745 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				327B674C1A0A1EF5006B2745 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		327B67601A0A1EF5006B2745 /* FoggyRaceTests */ = {
+			isa = PBXGroup;
+			children = (
+				327B67631A0A1EF5006B2745 /* FoggyRaceTests.swift */,
+				327B67611A0A1EF5006B2745 /* Supporting Files */,
+			);
+			path = FoggyRaceTests;
+			sourceTree = "<group>";
+		};
+		327B67611A0A1EF5006B2745 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				327B67621A0A1EF5006B2745 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		327B676D1A0A4167006B2745 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				32DB06611A27233600F2D796 /* 6041_Stone.png */,
+				32F11E831A0DF94B00CDE804 /* backstage.mp3 */,
+				327B676E1A0A4167006B2745 /* brick.png */,
+				327B676F1A0A4167006B2745 /* car.png */,
+				327B67701A0A4167006B2745 /* drift_racing-wide.jpg */,
+				327B67711A0A4167006B2745 /* fog.png */,
+				327B67721A0A4167006B2745 /* line.png */,
+				327B67731A0A4167006B2745 /* road.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		327B67471A0A1EF5006B2745 /* FoggyRace */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 327B67671A0A1EF5006B2745 /* Build configuration list for PBXNativeTarget "FoggyRace" */;
+			buildPhases = (
+				327B67441A0A1EF5006B2745 /* Sources */,
+				327B67451A0A1EF5006B2745 /* Frameworks */,
+				327B67461A0A1EF5006B2745 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FoggyRace;
+			productName = FoggyRace;
+			productReference = 327B67481A0A1EF5006B2745 /* FoggyRace.app */;
+			productType = "com.apple.product-type.application";
+		};
+		327B675C1A0A1EF5006B2745 /* FoggyRaceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 327B676A1A0A1EF5006B2745 /* Build configuration list for PBXNativeTarget "FoggyRaceTests" */;
+			buildPhases = (
+				327B67591A0A1EF5006B2745 /* Sources */,
+				327B675A1A0A1EF5006B2745 /* Frameworks */,
+				327B675B1A0A1EF5006B2745 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				327B675F1A0A1EF5006B2745 /* PBXTargetDependency */,
+			);
+			name = FoggyRaceTests;
+			productName = FoggyRaceTests;
+			productReference = 327B675D1A0A1EF5006B2745 /* FoggyRaceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		327B67401A0A1EF5006B2745 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = Glowman;
+				TargetAttributes = {
+					327B67471A0A1EF5006B2745 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					327B675C1A0A1EF5006B2745 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 327B67471A0A1EF5006B2745;
+					};
+				};
+			};
+			buildConfigurationList = 327B67431A0A1EF5006B2745 /* Build configuration list for PBXProject "FoggyRace" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 327B673F1A0A1EF5006B2745;
+			productRefGroup = 327B67491A0A1EF5006B2745 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				327B67471A0A1EF5006B2745 /* FoggyRace */,
+				327B675C1A0A1EF5006B2745 /* FoggyRaceTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		327B67461A0A1EF5006B2745 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				327B67761A0A4167006B2745 /* drift_racing-wide.jpg in Resources */,
+				32DB06621A27233600F2D796 /* 6041_Stone.png in Resources */,
+				327B67531A0A1EF5006B2745 /* Main.storyboard in Resources */,
+				327B67791A0A4167006B2745 /* road.png in Resources */,
+				327B67581A0A1EF5006B2745 /* LaunchScreen.xib in Resources */,
+				327B67781A0A4167006B2745 /* line.png in Resources */,
+				327B67751A0A4167006B2745 /* car.png in Resources */,
+				32F11E841A0DF94B00CDE804 /* backstage.mp3 in Resources */,
+				327B67551A0A1EF5006B2745 /* Images.xcassets in Resources */,
+				327B67741A0A4167006B2745 /* brick.png in Resources */,
+				327B67771A0A4167006B2745 /* fog.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		327B675B1A0A1EF5006B2745 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		327B67441A0A1EF5006B2745 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				327B679B1A0BFC5D006B2745 /* ObstacleBehaviour.swift in Sources */,
+				327B67501A0A1EF5006B2745 /* ViewController.swift in Sources */,
+				32B3D8731A4AF4E400D3B563 /* ObstacleView.swift in Sources */,
+				32B3D8771A556D8400D3B563 /* RoadLinesView.swift in Sources */,
+				327B677B1A0A99D4006B2745 /* FogView.swift in Sources */,
+				327B674E1A0A1EF5006B2745 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		327B67591A0A1EF5006B2745 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				327B67641A0A1EF5006B2745 /* FoggyRaceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		327B675F1A0A1EF5006B2745 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 327B67471A0A1EF5006B2745 /* FoggyRace */;
+			targetProxy = 327B675E1A0A1EF5006B2745 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		327B67511A0A1EF5006B2745 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				327B67521A0A1EF5006B2745 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		327B67561A0A1EF5006B2745 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				327B67571A0A1EF5006B2745 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		327B67651A0A1EF5006B2745 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		327B67661A0A1EF5006B2745 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		327B67681A0A1EF5006B2745 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FoggyRace/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		327B67691A0A1EF5006B2745 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FoggyRace/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		327B676B1A0A1EF5006B2745 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FoggyRaceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoggyRace.app/FoggyRace";
+			};
+			name = Debug;
+		};
+		327B676C1A0A1EF5006B2745 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FoggyRaceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoggyRace.app/FoggyRace";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		327B67431A0A1EF5006B2745 /* Build configuration list for PBXProject "FoggyRace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				327B67651A0A1EF5006B2745 /* Debug */,
+				327B67661A0A1EF5006B2745 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		327B67671A0A1EF5006B2745 /* Build configuration list for PBXNativeTarget "FoggyRace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				327B67681A0A1EF5006B2745 /* Debug */,
+				327B67691A0A1EF5006B2745 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		327B676A1A0A1EF5006B2745 /* Build configuration list for PBXNativeTarget "FoggyRaceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				327B676B1A0A1EF5006B2745 /* Debug */,
+				327B676C1A0A1EF5006B2745 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 327B67401A0A1EF5006B2745 /* Project object */;
+}
