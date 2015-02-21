@@ -17,27 +17,31 @@ class ViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     
     var obstacleBehaviour: ObstacleBehaviour!
-    var fogView: FogView!
-    
     
 
     var roadLinesView:  RoadLinesView!
 
-
+    var moving: Bool = false
+    var movingDirection: Int = 0
+    var panStartPoint: CGFloat = 0
     
     var carView: UIView!
     var carPosition: Int = 1
     let minCarPosition: Int = 0
     let maxCarPosition: Int = 2
     
+    let CAR_SPEED: CGFloat = 6
     let COLUMN_WIDTH: CGFloat = 256
     let ROAD_LINE_NUMS = 3
+    let PAN_DISTANCE: CGFloat = 200
+    
+    let LINES_NUM:Int = 5
     
     var tickTimer: NSTimer?
     
     
     lazy var backgroundMusic: AVAudioPlayer = {
-        let url = NSBundle.mainBundle().URLForResource("backstage", withExtension: "mp3")
+        let url = NSBundle.mainBundle().URLForResource("radio", withExtension: "mp3")
         let player = AVAudioPlayer(contentsOfURL: url, error: nil)
         player.numberOfLoops = -1
         return player
@@ -49,8 +53,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.startGame()
         backgroundMusic.play()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.startGame()
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,7 +70,7 @@ class ViewController: UIViewController {
     func startGame() {
         self.runLines()
 
-        self.createFog()
+        //self.createFog()
         self.drawCar()
         self.runObstacles()
 
@@ -77,7 +86,6 @@ class ViewController: UIViewController {
         self.carPosition = 1
         carView.frame.origin.x = roadView.frame.size.width/2 - carView.frame.size.width/2
         
-        self.fogView.run()
         self.obstacleBehaviour.run()
         self.addRecognizers()
         self.scheduleTickTimer()
@@ -86,16 +94,14 @@ class ViewController: UIViewController {
     }
     
     func addRecognizers() {
-        var swipeLeft = UISwipeGestureRecognizer(target :self, action:Selector("handleSwipe:"));
-        var swipeRight = UISwipeGestureRecognizer(target :self, action:Selector("handleSwipe:"));
+        var panRecognizer = UIPanGestureRecognizer(target: self, action: Selector("handlePan:"))
+        var tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("handleTap:"))
         
-        // Setting the swipe direction.
-        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left;
-        swipeRight.direction = UISwipeGestureRecognizerDirection.Right;
+        panRecognizer.maximumNumberOfTouches = 1
+        panRecognizer.minimumNumberOfTouches = 1
         
-        // Adding the swipe gesture on image view
-        roadView.addGestureRecognizer(swipeLeft)
-        roadView.addGestureRecognizer(swipeRight)
+        roadView.addGestureRecognizer(panRecognizer)
+        roadView.addGestureRecognizer(tapRecognizer)
     }
     
     func removeRecognizers() {
@@ -108,40 +114,24 @@ class ViewController: UIViewController {
     
        
     func runObstacles() {
-        obstacleBehaviour = ObstacleBehaviour(roadView: self.roadView, linesNum: ROAD_LINE_NUMS)
+        obstacleBehaviour = ObstacleBehaviour(roadView: self.roadView, linesNum: LINES_NUM)
         obstacleBehaviour.run()
     }
     
-    
-    
-    
-    func createFog() {
-        fogView = FogView(animationMinX: 256, animationMaxX: 512)
-        fogView.frame.size = CGSize(width: self.roadView.frame.size.width, height: self.roadView.frame.size.width)
-        fogView.frame.origin = CGPoint(x: self.roadView.frame.size.width/2 - fogView.frame.size.width/2,
-            y: self.roadView.frame.size.height/2 - fogView.frame.size.height/2)
-        fogView.run()
-        self.view.addSubview(fogView);
-    }
-    
     func runLines(){
-        roadLinesView = RoadLinesView()
+        roadLinesView = RoadLinesView(frame: self.roadView.frame, linesNum: LINES_NUM)
         roadLinesView.userInteractionEnabled = false
 
-        roadLinesView.frame.size = CGSize(width: self.roadView.frame.size.width, height: self.roadView.frame.size.height)
-        roadLinesView.frame.origin = CGPoint(x: 0,
-            y: 0)
+        self.roadView.addSubview(roadLinesView);
         roadLinesView.run()
-        self.view.addSubview(roadLinesView);
-
     }
     
     func scheduleTickTimer() {
-        tickTimer = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: Selector("onTick"), userInfo: nil, repeats: true)
+        tickTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("onTick"), userInfo: nil, repeats: true)
     }
     
     func drawCar() {
-        var image = UIImage(named: "car.png")
+        var image = UIImage(named: "hero.png")
         carView = UIImageView(image: image)
         carView.frame.origin.x = roadView.frame.size.width/2 - carView.frame.size.width/2
         carView.frame.origin.y = roadView.frame.height - carView.frame.size.height - 10
@@ -150,107 +140,65 @@ class ViewController: UIViewController {
     }
 
     
-    func handleSwipe(swipe: UISwipeGestureRecognizer) {
+    func handlePan(pan: UIPanGestureRecognizer) {
 
         
-        if (swipe.direction == UISwipeGestureRecognizerDirection.Left) {
-            if (carPosition == 1) {
-                carPosition--
-                self.moveCar(-1)
-                UIView.animateWithDuration(0.2,
-                    delay: 0.0,
-                    options: nil,
-                    animations: {
-                         self.carView.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(-30)))
-                    },
-                    completion: { finished in
-                        UIView.animateWithDuration(0.2,
-                            delay: 0.0,
-                            options: nil,
-                            animations: {
-                                self.carView.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(0)))
-                            },
-                            completion: nil
-                        )
-                    }
-                )
+        //self.carView.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(-30)))
 
-             }
-            else if (carPosition == maxCarPosition){
-                carPosition--
-                self.moveCar(-1)
-                UIView.animateWithDuration(0.2,
-                    delay: 0.0,
-                    options: nil,
-                    animations: {
-                        self.carView.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(-30)))
-                    },
-                    completion: { finished in
-                        UIView.animateWithDuration(0.2,
-                            delay: 0.0,
-                            options: nil,
-                            animations: {
-                                self.carView.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(0)))
-                            },
-                            completion: { finished in
-                            }
-                        )
-                    }
-                )
-
-            }
+        let prevDirection = movingDirection
+        if pan.state == .Changed {
+            movingDirection = pan.velocityInView(self.view).x < 0 ? -1 : 1
         }
-
-        if (swipe.direction == UISwipeGestureRecognizerDirection.Right) {
-            if (carPosition == 1){
-                carPosition++
-                self.moveCar(1)
-                UIView.animateWithDuration(0.2,
-                    delay: 0.0,
-                    options: nil,
-                    animations: {
-                        self.carView.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(30)))
-                    },
-                    completion: { finished in
-                        UIView.animateWithDuration(0.2,
-                            delay: 0.0,
-                            options: nil,
-                            animations: {
-                                self.carView.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(0)))
-                            },
-                            completion: { finished in
-                                
-                            }
-                        )
-                    }
-                )
-
-            }
-            else if (carPosition == minCarPosition){
-                carPosition++
-                self.moveCar(1)
-                UIView.animateWithDuration(0.2,
-                    delay: 0.0,
-                    options: nil,
-                    animations: {
-                        self.carView.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(30)))
-                    },
-                    completion: { finished in
-                        UIView.animateWithDuration(0.2,
-                            delay: 0.0,
-                            options: nil,
-                            animations: {
-                                self.carView.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(0)))
-                            },
-                            completion: { finished in
-                            }
-                        )
-                    }
-                )
-
-            }
+        if pan.state == .Ended {
+            self.obstacleBehaviour.show()
+            movingDirection = 0
+            moving = false
         }
+        else if pan.state == .Began {
+            self.obstacleBehaviour.hide()
+            moving = true
+        }
+        
+        let realDistance = self.view.frame.size.width/2 - 50
+        let centerPosition = self.view.frame.size.width/2
+        if (pan.state == .Began)
+        {
+            self.obstacleBehaviour.hide()
+            
+            let currentCarPosition = self.carView.center.x - pan.locationInView(self.view).x
+            let virtualPosition = currentCarPosition / realDistance * PAN_DISTANCE
+            self.panStartPoint = pan.locationInView(self.view).x + virtualPosition
+        }
+    
+        if movingDirection != 0
+        {
+            let currentPanPosition = pan.locationInView(self.view).x
+            var currentDistance = currentPanPosition - self.panStartPoint
+            if currentDistance < -PAN_DISTANCE { currentDistance = -PAN_DISTANCE }
+            if currentDistance > PAN_DISTANCE { currentDistance = PAN_DISTANCE }
+            let virtualPosition = currentDistance / PAN_DISTANCE
+            let carNewX = centerPosition + (virtualPosition * realDistance)
+            //moveCarToX(carNewX)
+        }
+        
+        
+        //self.moveCar(-1)
 
+    }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        self.obstacleBehaviour.hide()
+    }
+    
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        if !self.moving { self.obstacleBehaviour.show() }
+    }
+    
+    override func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
+        if !self.moving  { self.obstacleBehaviour.show() }
+    }
+    
+    func handleTap(tap: UITapGestureRecognizer) {
     }
     
     func normalizeCarRotation()
@@ -267,25 +215,40 @@ class ViewController: UIViewController {
         self.carView.frame.origin = layer.frame.origin;
     }
     func moveCar(direction: Int) {
-        self.stopCar()
-        let nextX: CGFloat = CGFloat(self.carPosition) * COLUMN_WIDTH + COLUMN_WIDTH/2 - self.carView.frame.size.width/2
-        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: {
-            self.carView.frame.origin.x = nextX
-        }, completion: nil)
+        self.carView.frame.origin.x += 5 * CGFloat(direction)
+        
+//        self.stopCar()
+//        let nextX: CGFloat = CGFloat(self.carPosition) * COLUMN_WIDTH + COLUMN_WIDTH/2 - self.carView.frame.size.width/2
+//        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: {
+//            self.carView.frame.origin.x = nextX
+//        }, completion: nil)
+    }
+    func moveCarToX(x: CGFloat) {
+        self.carView.center.x = x
     }
     
     func onTick() {
-        if (obstacleBehaviour.testHitRect(carView.layer.presentationLayer().frame)) {
+        if (carView.layer.presentationLayer() != nil && obstacleBehaviour.testHitRect(carView.layer.presentationLayer().frame)) {
             self.gameOver()
         } else {
             self.scoreLabel.text = String(self.obstacleBehaviour.fallsNum)
+            
+            if (self.moving)
+            {
+                self.carView.center.x += CGFloat(self.movingDirection) * CAR_SPEED
+                if self.carView.center.x < 50 { self.carView.center.x = 50 }
+                let rightEdge = self.view.frame.size.width - 50
+                if self.carView.center.x > rightEdge { self.carView.center.x = rightEdge }
+                
+            }
         }
     }
     
     func gameOver() {
         tickTimer!.invalidate()
         tickTimer = nil
-        
+        self.moving = false
+        self.movingDirection = 0
 
         self.stopAllAnimations()
         self.removeRecognizers()
@@ -297,8 +260,8 @@ class ViewController: UIViewController {
     func stopAllAnimations() {
         self.stopCar()
         self.obstacleBehaviour.stop()
-        self.fogView.stop()
     }
 
 }
+
 

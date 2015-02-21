@@ -13,20 +13,32 @@ class ObstacleBehaviour: UIView {
     var linesNum = 0
     var obstacles: [UIView] = []
     
-    let OBSTACLE_OFFSET: CGFloat = 70
+    let OBSTACLE_OFFSET: CGFloat = 15
     
     var stopped: Bool = true
     
-    var lowestSpeed: CGFloat = 4
-    let REDUCE_SPEED_FACTOR: CGFloat = 0.1
+    let fastestFalling: CGFloat = 1.5
+    var currentFallingSpeed: CGFloat = 0
+    let REDUCE_FALLING_SPEED: CGFloat = 0.1
+    let START_FALLING_SPEED: CGFloat = 3.5
+    
+    var currentSpeed: CGFloat = 0
+    var lowestSpeed: CGFloat = 0.8
+    let REDUCE_SPEED_FACTOR: CGFloat = 0.01
+    let START_SPEED: CGFloat = 1.2
     var reduceSpeedTimer: NSTimer?
     
     var fallsNum: Int = 0
+    
+    func DEGREES_TO_RADIANS(x: Float) -> Float { return Float(M_PI) * x / 180.0 }
+
     
     convenience init(roadView: UIView, linesNum: Int) {
         self.init()
         self.roadView = roadView
         self.linesNum = linesNum
+        self.frame.origin = roadView.frame.origin
+        roadView.addSubview(self)
     }
     
     override init() {
@@ -39,6 +51,20 @@ class ObstacleBehaviour: UIView {
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func hide() {
+        self.layer.removeAllAnimations()
+        UIView.animateWithDuration(0.1, animations: {
+            self.alpha = 0
+        })
+    }
+    
+    func show() {
+        self.layer.removeAllAnimations()
+        UIView.animateWithDuration(0.1, animations: {
+            self.alpha = 1
+        })
     }
     
     func testHitRect(rect: CGRect) -> Bool {
@@ -68,7 +94,8 @@ class ObstacleBehaviour: UIView {
     
     func run() {
         self.fallsNum = 0
-        self.lowestSpeed = 4
+        self.currentFallingSpeed = START_FALLING_SPEED
+        self.currentSpeed = START_SPEED
         self.stopped = false
         self.shootObstacle()
         let timerSelector: Selector = Selector("onTimer")
@@ -81,19 +108,31 @@ class ObstacleBehaviour: UIView {
         if (!stopped) {
             self.shootObstacle()
             let timerSelector: Selector = Selector("onTimer")
-            NSTimer.scheduledTimerWithTimeInterval(self.getTimerInterval(), target: self, selector: timerSelector, userInfo: nil, repeats: false)
+            let interval = self.getTimerInterval();
+            NSTimer.scheduledTimerWithTimeInterval(interval, target: self, selector: timerSelector, userInfo: nil, repeats: false)
+           // else{
+               // NSTimer.scheduledTimerWithTimeInterval(self.getTimerInterval(), target: self, selector: timerSelector, userInfo: nil, repeats: false)
+           // }
         }
+        
     }
     
     func shootObstacle(){
         var obstacle = self.createObstacle()
         obstacles.append(obstacle)
         
-            
-        let line: Int = random() % linesNum
+    
+        let line: Int = random() % (linesNum+1)
         obstacle.frame.origin.y = -obstacle.frame.size.height
-        obstacle.frame.origin.x = CGFloat(line) * (roadView.frame.size.width/CGFloat(linesNum)) + OBSTACLE_OFFSET
-        roadView.addSubview(obstacle)
+        
+        obstacle.frame.origin.x = CGFloat(line) * (roadView.frame.size.width/CGFloat(linesNum+1)) + OBSTACLE_OFFSET
+        
+//        let random: CGFloat = CGFloat(arc4random()) / CGFloat(UINT32_MAX)
+//        let obstacleX = (random * self.roadView.frame.size.width - 100) + 50
+//        obstacle.frame.origin.x = obstacleX
+
+        
+        self.addSubview(obstacle)
         
         UIView.animateWithDuration(self.getFallingInterval(), delay: 0, options: UIViewAnimationOptions.CurveLinear,
             animations: {
@@ -116,7 +155,8 @@ class ObstacleBehaviour: UIView {
     
     func createObstacle() -> ObstacleView {
         var result = ObstacleView()
-        result.frame.size = CGSize(width: self.getObstacleSize(), height: self.getObstacleSize())
+        result.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(180)))
+        //result.frame.size = CGSize(width: self.getObstacleSize(), height: self.getObstacleSize())
         
         return result
     }
@@ -128,15 +168,18 @@ class ObstacleBehaviour: UIView {
     }
 
     func reduceSpeed() {
-        lowestSpeed -= REDUCE_SPEED_FACTOR
+        currentSpeed -= REDUCE_SPEED_FACTOR
+        currentFallingSpeed -= REDUCE_FALLING_SPEED
+        if currentSpeed < lowestSpeed { currentSpeed = lowestSpeed }
+        if currentFallingSpeed < fastestFalling { currentFallingSpeed = fastestFalling }
     }
     
     func getTimerInterval() -> NSTimeInterval {
         let random: CGFloat = CGFloat(arc4random()) / CGFloat(UINT32_MAX)
-        return NSTimeInterval(random * self.lowestSpeed)
+        return NSTimeInterval(random * self.currentSpeed)
     }
     
     func getFallingInterval() -> NSTimeInterval {
-        return 3
+        return NSTimeInterval(currentFallingSpeed)
     }
 }

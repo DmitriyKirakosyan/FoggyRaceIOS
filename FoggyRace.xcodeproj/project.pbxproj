@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C6AA0891A87CE4000F2DA1D /* radio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AA0881A87CE4000F2DA1D /* radio.mp3 */; };
 		327B674E1A0A1EF5006B2745 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B674D1A0A1EF5006B2745 /* AppDelegate.swift */; };
 		327B67501A0A1EF5006B2745 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B674F1A0A1EF5006B2745 /* ViewController.swift */; };
 		327B67531A0A1EF5006B2745 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 327B67511A0A1EF5006B2745 /* Main.storyboard */; };
@@ -14,15 +15,16 @@
 		327B67581A0A1EF5006B2745 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 327B67561A0A1EF5006B2745 /* LaunchScreen.xib */; };
 		327B67641A0A1EF5006B2745 /* FoggyRaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B67631A0A1EF5006B2745 /* FoggyRaceTests.swift */; };
 		327B67741A0A4167006B2745 /* brick.png in Resources */ = {isa = PBXBuildFile; fileRef = 327B676E1A0A4167006B2745 /* brick.png */; };
-		327B67751A0A4167006B2745 /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = 327B676F1A0A4167006B2745 /* car.png */; };
 		327B67761A0A4167006B2745 /* drift_racing-wide.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 327B67701A0A4167006B2745 /* drift_racing-wide.jpg */; };
 		327B67771A0A4167006B2745 /* fog.png in Resources */ = {isa = PBXBuildFile; fileRef = 327B67711A0A4167006B2745 /* fog.png */; };
-		327B67781A0A4167006B2745 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 327B67721A0A4167006B2745 /* line.png */; };
-		327B67791A0A4167006B2745 /* road.png in Resources */ = {isa = PBXBuildFile; fileRef = 327B67731A0A4167006B2745 /* road.png */; };
-		327B677B1A0A99D4006B2745 /* FogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B677A1A0A99D4006B2745 /* FogView.swift */; };
 		327B679B1A0BFC5D006B2745 /* ObstacleBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B679A1A0BFC5D006B2745 /* ObstacleBehaviour.swift */; };
 		32B3D8731A4AF4E400D3B563 /* ObstacleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B3D8721A4AF4E400D3B563 /* ObstacleView.swift */; };
-		32B3D8771A556D8400D3B563 /* RoadLinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B3D8761A556D8400D3B563 /* RoadLinesView.swift */; };
+		32C26DBB1A977DAB00670E82 /* RoadLinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C26DBA1A977DAB00670E82 /* RoadLinesView.swift */; };
+		32C26DBD1A977DCB00670E82 /* AnimatedLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C26DBC1A977DCB00670E82 /* AnimatedLineView.swift */; };
+		32D2B8EA1A95FCFC00757272 /* bkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D2B8E91A95FCFC00757272 /* bkg.png */; };
+		32D2B8EC1A95FD0600757272 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D2B8EB1A95FD0600757272 /* enemy.png */; };
+		32D2B8EE1A95FD0D00757272 /* hero.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D2B8ED1A95FD0D00757272 /* hero.png */; };
+		32D2B8F01A95FD6B00757272 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D2B8EF1A95FD6B00757272 /* line.png */; };
 		32DB06621A27233600F2D796 /* 6041_Stone.png in Resources */ = {isa = PBXBuildFile; fileRef = 32DB06611A27233600F2D796 /* 6041_Stone.png */; };
 		32F11E841A0DF94B00CDE804 /* backstage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 32F11E831A0DF94B00CDE804 /* backstage.mp3 */; };
 /* End PBXBuildFile section */
@@ -38,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C6AA0881A87CE4000F2DA1D /* radio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = radio.mp3; sourceTree = "<group>"; };
 		327B67481A0A1EF5006B2745 /* FoggyRace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoggyRace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		327B674C1A0A1EF5006B2745 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		327B674D1A0A1EF5006B2745 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,16 +52,17 @@
 		327B67621A0A1EF5006B2745 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		327B67631A0A1EF5006B2745 /* FoggyRaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoggyRaceTests.swift; sourceTree = "<group>"; };
 		327B676E1A0A4167006B2745 /* brick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick.png; sourceTree = "<group>"; };
-		327B676F1A0A4167006B2745 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
 		327B67701A0A4167006B2745 /* drift_racing-wide.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "drift_racing-wide.jpg"; sourceTree = "<group>"; };
 		327B67711A0A4167006B2745 /* fog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fog.png; sourceTree = "<group>"; };
-		327B67721A0A4167006B2745 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
-		327B67731A0A4167006B2745 /* road.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = road.png; sourceTree = "<group>"; };
-		327B677A1A0A99D4006B2745 /* FogView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FogView.swift; sourceTree = "<group>"; };
 		327B679A1A0BFC5D006B2745 /* ObstacleBehaviour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObstacleBehaviour.swift; sourceTree = "<group>"; };
 		32B3D8721A4AF4E400D3B563 /* ObstacleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObstacleView.swift; sourceTree = "<group>"; };
 		32B3D8741A4D8FEC00D3B563 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		32B3D8761A556D8400D3B563 /* RoadLinesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoadLinesView.swift; sourceTree = "<group>"; };
+		32C26DBA1A977DAB00670E82 /* RoadLinesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoadLinesView.swift; sourceTree = "<group>"; };
+		32C26DBC1A977DCB00670E82 /* AnimatedLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedLineView.swift; sourceTree = "<group>"; };
+		32D2B8E91A95FCFC00757272 /* bkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bkg.png; sourceTree = "<group>"; };
+		32D2B8EB1A95FD0600757272 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
+		32D2B8ED1A95FD0D00757272 /* hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hero.png; sourceTree = "<group>"; };
+		32D2B8EF1A95FD6B00757272 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
 		32DB06611A27233600F2D796 /* 6041_Stone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6041_Stone.png; sourceTree = "<group>"; };
 		32F11E831A0DF94B00CDE804 /* backstage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backstage.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,12 +107,11 @@
 		327B674A1A0A1EF5006B2745 /* FoggyRace */ = {
 			isa = PBXGroup;
 			children = (
+				32C26DB91A977DAB00670E82 /* roadline */,
 				327B676D1A0A4167006B2745 /* Resources */,
 				327B674D1A0A1EF5006B2745 /* AppDelegate.swift */,
 				327B674F1A0A1EF5006B2745 /* ViewController.swift */,
-				327B677A1A0A99D4006B2745 /* FogView.swift */,
 				327B679A1A0BFC5D006B2745 /* ObstacleBehaviour.swift */,
-				32B3D8761A556D8400D3B563 /* RoadLinesView.swift */,
 				32B3D8721A4AF4E400D3B563 /* ObstacleView.swift */,
 				327B67511A0A1EF5006B2745 /* Main.storyboard */,
 				327B67541A0A1EF5006B2745 /* Images.xcassets */,
@@ -146,16 +149,27 @@
 		327B676D1A0A4167006B2745 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2C6AA0881A87CE4000F2DA1D /* radio.mp3 */,
 				32DB06611A27233600F2D796 /* 6041_Stone.png */,
 				32F11E831A0DF94B00CDE804 /* backstage.mp3 */,
 				327B676E1A0A4167006B2745 /* brick.png */,
-				327B676F1A0A4167006B2745 /* car.png */,
 				327B67701A0A4167006B2745 /* drift_racing-wide.jpg */,
 				327B67711A0A4167006B2745 /* fog.png */,
-				327B67721A0A4167006B2745 /* line.png */,
-				327B67731A0A4167006B2745 /* road.png */,
+				32D2B8ED1A95FD0D00757272 /* hero.png */,
+				32D2B8EF1A95FD6B00757272 /* line.png */,
+				32D2B8EB1A95FD0600757272 /* enemy.png */,
+				32D2B8E91A95FCFC00757272 /* bkg.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		32C26DB91A977DAB00670E82 /* roadline */ = {
+			isa = PBXGroup;
+			children = (
+				32C26DBA1A977DAB00670E82 /* RoadLinesView.swift */,
+				32C26DBC1A977DCB00670E82 /* AnimatedLineView.swift */,
+			);
+			path = roadline;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,16 +252,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32D2B8EA1A95FCFC00757272 /* bkg.png in Resources */,
 				327B67761A0A4167006B2745 /* drift_racing-wide.jpg in Resources */,
+				32D2B8EC1A95FD0600757272 /* enemy.png in Resources */,
 				32DB06621A27233600F2D796 /* 6041_Stone.png in Resources */,
 				327B67531A0A1EF5006B2745 /* Main.storyboard in Resources */,
-				327B67791A0A4167006B2745 /* road.png in Resources */,
 				327B67581A0A1EF5006B2745 /* LaunchScreen.xib in Resources */,
-				327B67781A0A4167006B2745 /* line.png in Resources */,
-				327B67751A0A4167006B2745 /* car.png in Resources */,
 				32F11E841A0DF94B00CDE804 /* backstage.mp3 in Resources */,
 				327B67551A0A1EF5006B2745 /* Images.xcassets in Resources */,
+				32D2B8EE1A95FD0D00757272 /* hero.png in Resources */,
+				32D2B8F01A95FD6B00757272 /* line.png in Resources */,
 				327B67741A0A4167006B2745 /* brick.png in Resources */,
+				2C6AA0891A87CE4000F2DA1D /* radio.mp3 in Resources */,
 				327B67771A0A4167006B2745 /* fog.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,9 +285,9 @@
 				327B679B1A0BFC5D006B2745 /* ObstacleBehaviour.swift in Sources */,
 				327B67501A0A1EF5006B2745 /* ViewController.swift in Sources */,
 				32B3D8731A4AF4E400D3B563 /* ObstacleView.swift in Sources */,
-				32B3D8771A556D8400D3B563 /* RoadLinesView.swift in Sources */,
-				327B677B1A0A99D4006B2745 /* FogView.swift in Sources */,
 				327B674E1A0A1EF5006B2745 /* AppDelegate.swift in Sources */,
+				32C26DBB1A977DAB00670E82 /* RoadLinesView.swift in Sources */,
+				32C26DBD1A977DCB00670E82 /* AnimatedLineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,7 +346,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dmitry Kirakosyan (E4FQGRSSA4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dmitry Kirakosyan (E4FQGRSSA4)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -350,6 +367,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "da6ff647-7193-48fc-898e-215f4c8e044b";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -373,7 +391,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dmitry Kirakosyan (E4FQGRSSA4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dmitry Kirakosyan (E4FQGRSSA4)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -386,6 +405,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "da6ff647-7193-48fc-898e-215f4c8e044b";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -396,10 +416,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dmitry Kirakosyan (E4FQGRSSA4)";
+				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				INFOPLIST_FILE = FoggyRace/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "da6ff647-7193-48fc-898e-215f4c8e044b";
 			};
 			name = Debug;
 		};
@@ -407,10 +430,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dmitry Kirakosyan (E4FQGRSSA4)";
+				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				INFOPLIST_FILE = FoggyRace/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "da6ff647-7193-48fc-898e-215f4c8e044b";
 			};
 			name = Release;
 		};

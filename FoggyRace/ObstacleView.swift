@@ -23,7 +23,7 @@ class ObstacleView: UIImageView {
     }
     
     override init() {
-        super.init(image: UIImage(named: "car.png"))
+        super.init(image: UIImage(named: "enemy.png"))
     }
     
     required init(coder aDecoder: NSCoder) {
