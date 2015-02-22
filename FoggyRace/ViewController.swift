@@ -30,6 +30,8 @@ class ViewController: UIViewController {
     let minCarPosition: Int = 0
     let maxCarPosition: Int = 5
     
+    let CAR_SWIPE_SPEED: CGFloat = 0.1
+    
     let CAR_SPEED: CGFloat = 6
     let COLUMN_WIDTH: CGFloat = 256
     let ROAD_LINE_NUMS = 3
@@ -145,14 +147,15 @@ class ViewController: UIViewController {
     func handleSwipe(swipe: UISwipeGestureRecognizer) {
         let direction = swipe.direction == UISwipeGestureRecognizerDirection.Left ? -1 : 1
         self.moveCar(direction)
-        UIView.animateWithDuration(0.2,
+        let rotationSpeed = NSTimeInterval(CAR_SWIPE_SPEED)
+        UIView.animateWithDuration(rotationSpeed,
             delay: 0.0,
             options: nil,
             animations: {
                 self.carView.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(Float(direction) * 30)))
             },
             completion: { finished in
-                UIView.animateWithDuration(0.2,
+                UIView.animateWithDuration(rotationSpeed,
                     delay: 0.0,
                     options: nil,
                     animations: {
@@ -202,7 +205,7 @@ class ViewController: UIViewController {
         
         
         //let nextX: CGFloat = CGFloat(self.carField) * COLUMN_WIDTH + COLUMN_WIDTH/2 - self.carView.frame.size.width/2
-        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: {
+        UIView.animateWithDuration(NSTimeInterval(CAR_SWIPE_SPEED), delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: {
            self.updateHeroPosition()
         }, completion: nil)
     }

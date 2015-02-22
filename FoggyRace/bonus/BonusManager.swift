@@ -18,10 +18,24 @@ class BonusManager: NSObject {
     var stageView: UIView!
     var fieldsNum: Int = 0
     
+    var bonuses: [BonusView] = []
+    
     
     init(stageView: UIView, fieldsNum: Int) {
         super.init()
         self.stageView = stageView
         self.fieldsNum = fieldsNum
+    }
+    
+    func tick(heroView: UIView) {
+        
+    }
+    
+    func run() {
+        
+    }
+    
+    func stop() {
+        
     }
 }

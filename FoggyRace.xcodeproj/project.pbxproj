@@ -28,6 +28,7 @@
 		32DB06621A27233600F2D796 /* 6041_Stone.png in Resources */ = {isa = PBXBuildFile; fileRef = 32DB06611A27233600F2D796 /* 6041_Stone.png */; };
 		32EE6C5D1A9A269700AC995A /* BonusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE6C5C1A9A269700AC995A /* BonusManager.swift */; };
 		32EE6C601A9A28E000AC995A /* EnergyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE6C5F1A9A28E000AC995A /* EnergyManager.swift */; };
+		32EE6C621A9A35E400AC995A /* BonusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE6C611A9A35E400AC995A /* BonusView.swift */; };
 		32F11E841A0DF94B00CDE804 /* backstage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 32F11E831A0DF94B00CDE804 /* backstage.mp3 */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		32DB06611A27233600F2D796 /* 6041_Stone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6041_Stone.png; sourceTree = "<group>"; };
 		32EE6C5C1A9A269700AC995A /* BonusManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BonusManager.swift; path = bonus/BonusManager.swift; sourceTree = "<group>"; };
 		32EE6C5F1A9A28E000AC995A /* EnergyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EnergyManager.swift; path = energy/EnergyManager.swift; sourceTree = "<group>"; };
+		32EE6C611A9A35E400AC995A /* BonusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BonusView.swift; path = bonus/BonusView.swift; sourceTree = "<group>"; };
 		32F11E831A0DF94B00CDE804 /* backstage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backstage.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				32EE6C5C1A9A269700AC995A /* BonusManager.swift */,
+				32EE6C611A9A35E400AC995A /* BonusView.swift */,
 			);
 			name = bonus;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32EE6C621A9A35E400AC995A /* BonusView.swift in Sources */,
 				327B679B1A0BFC5D006B2745 /* ObstacleBehaviour.swift in Sources */,
 				327B67501A0A1EF5006B2745 /* ViewController.swift in Sources */,
 				32B3D8731A4AF4E400D3B563 /* ObstacleView.swift in Sources */,
