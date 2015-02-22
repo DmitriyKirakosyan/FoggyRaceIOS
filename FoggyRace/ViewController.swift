@@ -26,16 +26,16 @@ class ViewController: UIViewController {
     var panStartPoint: CGFloat = 0
     
     var carView: UIView!
-    var carPosition: Int = 1
+    var carField: Int = 3
     let minCarPosition: Int = 0
-    let maxCarPosition: Int = 2
+    let maxCarPosition: Int = 5
     
     let CAR_SPEED: CGFloat = 6
     let COLUMN_WIDTH: CGFloat = 256
     let ROAD_LINE_NUMS = 3
     let PAN_DISTANCE: CGFloat = 200
     
-    let LINES_NUM:Int = 5
+    let FIELDS_NUM:Int = 6
     
     var tickTimer: NSTimer?
     
@@ -83,8 +83,8 @@ class ViewController: UIViewController {
     func restartGame() {
         self.removeRecognizers()
         
-        self.carPosition = 1
-        carView.frame.origin.x = roadView.frame.size.width/2 - carView.frame.size.width/2
+        self.carField = 3
+        self.updateHeroPosition()
         
         self.obstacleBehaviour.run()
         self.addRecognizers()
@@ -94,14 +94,14 @@ class ViewController: UIViewController {
     }
     
     func addRecognizers() {
-        var panRecognizer = UIPanGestureRecognizer(target: self, action: Selector("handlePan:"))
-        var tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("handleTap:"))
+        var swipeLeft = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipe:"))
+        var swipeRight = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipe:"))
+
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left;
+        swipeRight.direction = UISwipeGestureRecognizerDirection.Right;
         
-        panRecognizer.maximumNumberOfTouches = 1
-        panRecognizer.minimumNumberOfTouches = 1
-        
-        roadView.addGestureRecognizer(panRecognizer)
-        roadView.addGestureRecognizer(tapRecognizer)
+        roadView.addGestureRecognizer(swipeLeft)
+        roadView.addGestureRecognizer(swipeRight)
     }
     
     func removeRecognizers() {
@@ -114,12 +114,12 @@ class ViewController: UIViewController {
     
        
     func runObstacles() {
-        obstacleBehaviour = ObstacleBehaviour(roadView: self.roadView, linesNum: LINES_NUM)
+        obstacleBehaviour = ObstacleBehaviour(roadView: self.roadView, linesNum: FIELDS_NUM-1)
         obstacleBehaviour.run()
     }
     
     func runLines(){
-        roadLinesView = RoadLinesView(frame: self.roadView.frame, linesNum: LINES_NUM)
+        roadLinesView = RoadLinesView(frame: self.roadView.frame, linesNum: FIELDS_NUM-1)
         roadLinesView.userInteractionEnabled = false
 
         self.roadView.addSubview(roadLinesView);
@@ -134,56 +134,34 @@ class ViewController: UIViewController {
         var image = UIImage(named: "hero.png")
         carView = UIImageView(image: image)
         carView.frame.origin.x = roadView.frame.size.width/2 - carView.frame.size.width/2
+        
+        self.updateHeroPosition()
         carView.frame.origin.y = roadView.frame.height - carView.frame.size.height - 10
         
         roadView.addSubview(carView);
     }
 
     
-    func handlePan(pan: UIPanGestureRecognizer) {
-
-        
-        //self.carView.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(-30)))
-
-        let prevDirection = movingDirection
-        if pan.state == .Changed {
-            movingDirection = pan.velocityInView(self.view).x < 0 ? -1 : 1
-        }
-        if pan.state == .Ended {
-            self.obstacleBehaviour.show()
-            movingDirection = 0
-            moving = false
-        }
-        else if pan.state == .Began {
-            self.obstacleBehaviour.hide()
-            moving = true
-        }
-        
-        let realDistance = self.view.frame.size.width/2 - 50
-        let centerPosition = self.view.frame.size.width/2
-        if (pan.state == .Began)
-        {
-            self.obstacleBehaviour.hide()
-            
-            let currentCarPosition = self.carView.center.x - pan.locationInView(self.view).x
-            let virtualPosition = currentCarPosition / realDistance * PAN_DISTANCE
-            self.panStartPoint = pan.locationInView(self.view).x + virtualPosition
-        }
-    
-        if movingDirection != 0
-        {
-            let currentPanPosition = pan.locationInView(self.view).x
-            var currentDistance = currentPanPosition - self.panStartPoint
-            if currentDistance < -PAN_DISTANCE { currentDistance = -PAN_DISTANCE }
-            if currentDistance > PAN_DISTANCE { currentDistance = PAN_DISTANCE }
-            let virtualPosition = currentDistance / PAN_DISTANCE
-            let carNewX = centerPosition + (virtualPosition * realDistance)
-            //moveCarToX(carNewX)
-        }
-        
-        
-        //self.moveCar(-1)
-
+    func handleSwipe(swipe: UISwipeGestureRecognizer) {
+        let direction = swipe.direction == UISwipeGestureRecognizerDirection.Left ? -1 : 1
+        self.moveCar(direction)
+        UIView.animateWithDuration(0.2,
+            delay: 0.0,
+            options: nil,
+            animations: {
+                self.carView.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(Float(direction) * 30)))
+            },
+            completion: { finished in
+                UIView.animateWithDuration(0.2,
+                    delay: 0.0,
+                    options: nil,
+                    animations: {
+                        self.carView.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(0)))
+                    },
+                    completion: nil
+                )
+            }
+        )
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -215,13 +193,18 @@ class ViewController: UIViewController {
         self.carView.frame.origin = layer.frame.origin;
     }
     func moveCar(direction: Int) {
-        self.carView.frame.origin.x += 5 * CGFloat(direction)
+      //  self.carView.frame.origin.x += 5 * CGFloat(direction)
+        self.carField += direction
+        if self.carField > FIELDS_NUM-1 { self.carField = FIELDS_NUM-1 }
+        if self.carField < 0 { self.carField = 0 }
+        self.stopCar()
         
-//        self.stopCar()
-//        let nextX: CGFloat = CGFloat(self.carPosition) * COLUMN_WIDTH + COLUMN_WIDTH/2 - self.carView.frame.size.width/2
-//        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: {
-//            self.carView.frame.origin.x = nextX
-//        }, completion: nil)
+        
+        
+        //let nextX: CGFloat = CGFloat(self.carField) * COLUMN_WIDTH + COLUMN_WIDTH/2 - self.carView.frame.size.width/2
+        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: {
+           self.updateHeroPosition()
+        }, completion: nil)
     }
     func moveCarToX(x: CGFloat) {
         self.carView.center.x = x
@@ -260,6 +243,18 @@ class ViewController: UIViewController {
     func stopAllAnimations() {
         self.stopCar()
         self.obstacleBehaviour.stop()
+    }
+    
+    func roadFieldWidth() -> CGFloat {
+        return self.view.frame.size.width / CGFloat(FIELDS_NUM)
+    }
+    
+    func updateHeroPosition() {
+        self.carView.center.x = self.getHeroXByFieldIndex(self.carField)
+    }
+    
+    func getHeroXByFieldIndex(fieldIndex: Int) -> CGFloat {
+        return CGFloat(fieldIndex) * self.roadFieldWidth() + self.roadFieldWidth() / 2
     }
 
 }

@@ -26,6 +26,8 @@
 		32D2B8EE1A95FD0D00757272 /* hero.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D2B8ED1A95FD0D00757272 /* hero.png */; };
 		32D2B8F01A95FD6B00757272 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D2B8EF1A95FD6B00757272 /* line.png */; };
 		32DB06621A27233600F2D796 /* 6041_Stone.png in Resources */ = {isa = PBXBuildFile; fileRef = 32DB06611A27233600F2D796 /* 6041_Stone.png */; };
+		32EE6C5D1A9A269700AC995A /* BonusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE6C5C1A9A269700AC995A /* BonusManager.swift */; };
+		32EE6C601A9A28E000AC995A /* EnergyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE6C5F1A9A28E000AC995A /* EnergyManager.swift */; };
 		32F11E841A0DF94B00CDE804 /* backstage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 32F11E831A0DF94B00CDE804 /* backstage.mp3 */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,8 @@
 		32D2B8ED1A95FD0D00757272 /* hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hero.png; sourceTree = "<group>"; };
 		32D2B8EF1A95FD6B00757272 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
 		32DB06611A27233600F2D796 /* 6041_Stone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6041_Stone.png; sourceTree = "<group>"; };
+		32EE6C5C1A9A269700AC995A /* BonusManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BonusManager.swift; path = bonus/BonusManager.swift; sourceTree = "<group>"; };
+		32EE6C5F1A9A28E000AC995A /* EnergyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EnergyManager.swift; path = energy/EnergyManager.swift; sourceTree = "<group>"; };
 		32F11E831A0DF94B00CDE804 /* backstage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backstage.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +111,8 @@
 		327B674A1A0A1EF5006B2745 /* FoggyRace */ = {
 			isa = PBXGroup;
 			children = (
+				32EE6C5E1A9A28C100AC995A /* energy */,
+				32EE6C5B1A9A267E00AC995A /* bonus */,
 				32C26DB91A977DAB00670E82 /* roadline */,
 				327B676D1A0A4167006B2745 /* Resources */,
 				327B674D1A0A1EF5006B2745 /* AppDelegate.swift */,
@@ -170,6 +176,22 @@
 				32C26DBC1A977DCB00670E82 /* AnimatedLineView.swift */,
 			);
 			path = roadline;
+			sourceTree = "<group>";
+		};
+		32EE6C5B1A9A267E00AC995A /* bonus */ = {
+			isa = PBXGroup;
+			children = (
+				32EE6C5C1A9A269700AC995A /* BonusManager.swift */,
+			);
+			name = bonus;
+			sourceTree = "<group>";
+		};
+		32EE6C5E1A9A28C100AC995A /* energy */ = {
+			isa = PBXGroup;
+			children = (
+				32EE6C5F1A9A28E000AC995A /* EnergyManager.swift */,
+			);
+			name = energy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,8 +307,10 @@
 				327B679B1A0BFC5D006B2745 /* ObstacleBehaviour.swift in Sources */,
 				327B67501A0A1EF5006B2745 /* ViewController.swift in Sources */,
 				32B3D8731A4AF4E400D3B563 /* ObstacleView.swift in Sources */,
+				32EE6C601A9A28E000AC995A /* EnergyManager.swift in Sources */,
 				327B674E1A0A1EF5006B2745 /* AppDelegate.swift in Sources */,
 				32C26DBB1A977DAB00670E82 /* RoadLinesView.swift in Sources */,
+				32EE6C5D1A9A269700AC995A /* BonusManager.swift in Sources */,
 				32C26DBD1A977DCB00670E82 /* AnimatedLineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
