@@ -54,15 +54,15 @@ class ObstacleBehaviour: UIView {
     }
     
     func hide() {
-        self.layer.removeAllAnimations()
-        UIView.animateWithDuration(0.1, animations: {
+//        self.layer.removeAllAnimations()
+        UIView.animateWithDuration(0.8, animations: {
             self.alpha = 0
         })
     }
     
     func show() {
-        self.layer.removeAllAnimations()
-        UIView.animateWithDuration(0.1, animations: {
+//        self.layer.removeAllAnimations()
+        UIView.animateWithDuration(0.8, animations: {
             self.alpha = 1
         })
     }
@@ -70,20 +70,33 @@ class ObstacleBehaviour: UIView {
     func testHitRect(rect: CGRect) -> Bool {
         var result: Bool = false
         for obstacle in obstacles {
-            if (obstacle.layer.presentationLayer() != nil &&
-                obstacle.layer.presentationLayer().frame.intersects(rect)) {
-                result = true
-                break
+            if (obstacle.layer.presentationLayer() != nil) {
+                var frameForCheck = obstacle.layer.presentationLayer().frame
+                frameForCheck.size = CGSize(width: frameForCheck.size.width/2, height: frameForCheck.size.height/2)
+                frameForCheck.origin = CGPoint(x: frameForCheck.origin.x + frameForCheck.size.width/2, y: frameForCheck.origin.y + frameForCheck.size.height/2)
+                
+                if frameForCheck.intersects(rect) {
+                    result = true
+                    break
+                }
             }
         }
         
         return result
     }
     
+    func clean() {
+        for obstacle in obstacles {
+            self.removeObstacle(obstacle)
+        }
+    }
+    
     func stop() {
         stopped = true
         for obstacle in obstacles {
+
             obstacle.frame.origin = obstacle.layer.presentationLayer().frame.origin
+
             obstacle.layer.removeAllAnimations()
           //  self.removeObstacle(obstacle)
 
@@ -118,30 +131,30 @@ class ObstacleBehaviour: UIView {
     }
     
     func shootObstacle(){
-        var obstacle = self.createObstacle()
-        obstacles.append(obstacle)
+        var obstacleFrame = self.getObstacleFrame()
+        obstacleFrame.origin.y = -obstacleFrame.size.height
         
-    
         let line: Int = random() % (linesNum+1)
-        obstacle.frame.origin.y = -obstacle.frame.size.height
+        obstacleFrame.origin.x = CGFloat(line) * (roadView.frame.size.width/CGFloat(linesNum+1)) + OBSTACLE_OFFSET
         
-        obstacle.frame.origin.x = CGFloat(line) * (roadView.frame.size.width/CGFloat(linesNum+1)) + OBSTACLE_OFFSET
         
-//        let random: CGFloat = CGFloat(arc4random()) / CGFloat(UINT32_MAX)
-//        let obstacleX = (random * self.roadView.frame.size.width - 100) + 50
-//        obstacle.frame.origin.x = obstacleX
-
-        
-        self.addSubview(obstacle)
-        
-        UIView.animateWithDuration(self.getFallingInterval(), delay: 0, options: UIViewAnimationOptions.CurveLinear,
-            animations: {
-                obstacle.frame.origin.y = self.roadView.frame.size.height
-            }, completion: { finished in
-                self.removeObstacle(obstacle)
-                
-            }
-        )
+        if (!self.testHitRect(obstacleFrame)) {
+            var obstacle = self.createObstacle(obstacleFrame)
+            obstacles.append(obstacle)
+            
+            self.addSubview(obstacle)
+            
+            UIView.animateWithDuration(NSTimeInterval(self.getFallingSpeed()), delay: 0, options: UIViewAnimationOptions.CurveLinear,
+                animations: {
+                    obstacle.frame.origin.y = self.roadView.frame.size.height
+                }, completion: { finished in
+                    if obstacle.frame.origin.y == self.roadView.frame.size.height {
+                        self.removeObstacle(obstacle)
+                    }
+                    
+                }
+            )
+        }
     }
     
     
@@ -153,8 +166,8 @@ class ObstacleBehaviour: UIView {
         self.fallsNum++
     }
     
-    func createObstacle() -> ObstacleView {
-        var result = ObstacleView()
+    func createObstacle(frame: CGRect) -> ObstacleView {
+        var result = ObstacleView(frame: frame)
         result.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(180)))
         //result.frame.size = CGSize(width: self.getObstacleSize(), height: self.getObstacleSize())
         
@@ -166,10 +179,15 @@ class ObstacleBehaviour: UIView {
     func getObstacleSize() -> CGFloat {
         return roadView.frame.size.width / CGFloat(linesNum) - OBSTACLE_OFFSET * 2
     }
+    
+    func getObstacleFrame() -> CGRect {
+        return CGRect(x: 0, y: 0, width: 100, height: 100)
+    }
 
     func reduceSpeed() {
         currentSpeed -= REDUCE_SPEED_FACTOR
         currentFallingSpeed -= REDUCE_FALLING_SPEED
+        
         if currentSpeed < lowestSpeed { currentSpeed = lowestSpeed }
         if currentFallingSpeed < fastestFalling { currentFallingSpeed = fastestFalling }
     }
@@ -179,7 +197,7 @@ class ObstacleBehaviour: UIView {
         return NSTimeInterval(random * self.currentSpeed)
     }
     
-    func getFallingInterval() -> NSTimeInterval {
-        return NSTimeInterval(currentFallingSpeed)
+    func getFallingSpeed() -> CGFloat {
+        return currentFallingSpeed
     }
 }

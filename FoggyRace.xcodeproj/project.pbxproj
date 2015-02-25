@@ -14,9 +14,6 @@
 		327B67551A0A1EF5006B2745 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 327B67541A0A1EF5006B2745 /* Images.xcassets */; };
 		327B67581A0A1EF5006B2745 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 327B67561A0A1EF5006B2745 /* LaunchScreen.xib */; };
 		327B67641A0A1EF5006B2745 /* FoggyRaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B67631A0A1EF5006B2745 /* FoggyRaceTests.swift */; };
-		327B67741A0A4167006B2745 /* brick.png in Resources */ = {isa = PBXBuildFile; fileRef = 327B676E1A0A4167006B2745 /* brick.png */; };
-		327B67761A0A4167006B2745 /* drift_racing-wide.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 327B67701A0A4167006B2745 /* drift_racing-wide.jpg */; };
-		327B67771A0A4167006B2745 /* fog.png in Resources */ = {isa = PBXBuildFile; fileRef = 327B67711A0A4167006B2745 /* fog.png */; };
 		327B679B1A0BFC5D006B2745 /* ObstacleBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B679A1A0BFC5D006B2745 /* ObstacleBehaviour.swift */; };
 		32B3D8731A4AF4E400D3B563 /* ObstacleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B3D8721A4AF4E400D3B563 /* ObstacleView.swift */; };
 		32C26DBB1A977DAB00670E82 /* RoadLinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C26DBA1A977DAB00670E82 /* RoadLinesView.swift */; };
@@ -25,11 +22,11 @@
 		32D2B8EC1A95FD0600757272 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D2B8EB1A95FD0600757272 /* enemy.png */; };
 		32D2B8EE1A95FD0D00757272 /* hero.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D2B8ED1A95FD0D00757272 /* hero.png */; };
 		32D2B8F01A95FD6B00757272 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D2B8EF1A95FD6B00757272 /* line.png */; };
-		32DB06621A27233600F2D796 /* 6041_Stone.png in Resources */ = {isa = PBXBuildFile; fileRef = 32DB06611A27233600F2D796 /* 6041_Stone.png */; };
 		32EE6C5D1A9A269700AC995A /* BonusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE6C5C1A9A269700AC995A /* BonusManager.swift */; };
 		32EE6C601A9A28E000AC995A /* EnergyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE6C5F1A9A28E000AC995A /* EnergyManager.swift */; };
 		32EE6C621A9A35E400AC995A /* BonusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE6C611A9A35E400AC995A /* BonusView.swift */; };
-		32F11E841A0DF94B00CDE804 /* backstage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 32F11E831A0DF94B00CDE804 /* backstage.mp3 */; };
+		32EE6C671A9A50EA00AC995A /* battery_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 32EE6C651A9A50EA00AC995A /* battery_empty.png */; };
+		32EE6C681A9A50EA00AC995A /* battery_bonus.png in Resources */ = {isa = PBXBuildFile; fileRef = 32EE6C661A9A50EA00AC995A /* battery_bonus.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,9 +51,6 @@
 		327B675D1A0A1EF5006B2745 /* FoggyRaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoggyRaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		327B67621A0A1EF5006B2745 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		327B67631A0A1EF5006B2745 /* FoggyRaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoggyRaceTests.swift; sourceTree = "<group>"; };
-		327B676E1A0A4167006B2745 /* brick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick.png; sourceTree = "<group>"; };
-		327B67701A0A4167006B2745 /* drift_racing-wide.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "drift_racing-wide.jpg"; sourceTree = "<group>"; };
-		327B67711A0A4167006B2745 /* fog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fog.png; sourceTree = "<group>"; };
 		327B679A1A0BFC5D006B2745 /* ObstacleBehaviour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObstacleBehaviour.swift; sourceTree = "<group>"; };
 		32B3D8721A4AF4E400D3B563 /* ObstacleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObstacleView.swift; sourceTree = "<group>"; };
 		32B3D8741A4D8FEC00D3B563 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -66,11 +60,11 @@
 		32D2B8EB1A95FD0600757272 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
 		32D2B8ED1A95FD0D00757272 /* hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hero.png; sourceTree = "<group>"; };
 		32D2B8EF1A95FD6B00757272 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
-		32DB06611A27233600F2D796 /* 6041_Stone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6041_Stone.png; sourceTree = "<group>"; };
 		32EE6C5C1A9A269700AC995A /* BonusManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BonusManager.swift; path = bonus/BonusManager.swift; sourceTree = "<group>"; };
 		32EE6C5F1A9A28E000AC995A /* EnergyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EnergyManager.swift; path = energy/EnergyManager.swift; sourceTree = "<group>"; };
 		32EE6C611A9A35E400AC995A /* BonusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BonusView.swift; path = bonus/BonusView.swift; sourceTree = "<group>"; };
-		32F11E831A0DF94B00CDE804 /* backstage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backstage.mp3; sourceTree = "<group>"; };
+		32EE6C651A9A50EA00AC995A /* battery_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = battery_empty.png; sourceTree = "<group>"; };
+		32EE6C661A9A50EA00AC995A /* battery_bonus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = battery_bonus.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,12 +151,9 @@
 		327B676D1A0A4167006B2745 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				32EE6C651A9A50EA00AC995A /* battery_empty.png */,
+				32EE6C661A9A50EA00AC995A /* battery_bonus.png */,
 				2C6AA0881A87CE4000F2DA1D /* radio.mp3 */,
-				32DB06611A27233600F2D796 /* 6041_Stone.png */,
-				32F11E831A0DF94B00CDE804 /* backstage.mp3 */,
-				327B676E1A0A4167006B2745 /* brick.png */,
-				327B67701A0A4167006B2745 /* drift_racing-wide.jpg */,
-				327B67711A0A4167006B2745 /* fog.png */,
 				32D2B8ED1A95FD0D00757272 /* hero.png */,
 				32D2B8EF1A95FD6B00757272 /* line.png */,
 				32D2B8EB1A95FD0600757272 /* enemy.png */,
@@ -246,6 +237,7 @@
 				TargetAttributes = {
 					327B67471A0A1EF5006B2745 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = Q329V6GPTU;
 					};
 					327B675C1A0A1EF5006B2745 = {
 						CreatedOnToolsVersion = 6.1;
@@ -278,18 +270,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				32D2B8EA1A95FCFC00757272 /* bkg.png in Resources */,
-				327B67761A0A4167006B2745 /* drift_racing-wide.jpg in Resources */,
 				32D2B8EC1A95FD0600757272 /* enemy.png in Resources */,
-				32DB06621A27233600F2D796 /* 6041_Stone.png in Resources */,
 				327B67531A0A1EF5006B2745 /* Main.storyboard in Resources */,
 				327B67581A0A1EF5006B2745 /* LaunchScreen.xib in Resources */,
-				32F11E841A0DF94B00CDE804 /* backstage.mp3 in Resources */,
+				32EE6C681A9A50EA00AC995A /* battery_bonus.png in Resources */,
 				327B67551A0A1EF5006B2745 /* Images.xcassets in Resources */,
 				32D2B8EE1A95FD0D00757272 /* hero.png in Resources */,
 				32D2B8F01A95FD6B00757272 /* line.png in Resources */,
-				327B67741A0A4167006B2745 /* brick.png in Resources */,
 				2C6AA0891A87CE4000F2DA1D /* radio.mp3 in Resources */,
-				327B67771A0A4167006B2745 /* fog.png in Resources */,
+				32EE6C671A9A50EA00AC995A /* battery_empty.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,8 +363,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Dmitry Kirakosyan (E4FQGRSSA4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dmitry Kirakosyan (E4FQGRSSA4)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: DMITRIY KIRAKOSYAN (Q329V6GPTU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: DMITRIY KIRAKOSYAN (Q329V6GPTU)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -395,7 +384,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "da6ff647-7193-48fc-898e-215f4c8e044b";
+				PROVISIONING_PROFILE = "26841ca5-2741-4866-b2ad-ee79fa265d5a";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -419,8 +408,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Dmitry Kirakosyan (E4FQGRSSA4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dmitry Kirakosyan (E4FQGRSSA4)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: DMITRIY KIRAKOSYAN (Q329V6GPTU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: DMITRIY KIRAKOSYAN (Q329V6GPTU)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -433,7 +422,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "da6ff647-7193-48fc-898e-215f4c8e044b";
+				PROVISIONING_PROFILE = "26841ca5-2741-4866-b2ad-ee79fa265d5a";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -444,13 +433,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Dmitry Kirakosyan (E4FQGRSSA4)";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: DMITRIY KIRAKOSYAN (Q329V6GPTU)";
 				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				INFOPLIST_FILE = FoggyRace/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "da6ff647-7193-48fc-898e-215f4c8e044b";
+				PROVISIONING_PROFILE = "26841ca5-2741-4866-b2ad-ee79fa265d5a";
 			};
 			name = Debug;
 		};
@@ -458,13 +448,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Dmitry Kirakosyan (E4FQGRSSA4)";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: DMITRIY KIRAKOSYAN (Q329V6GPTU)";
 				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				INFOPLIST_FILE = FoggyRace/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "da6ff647-7193-48fc-898e-215f4c8e044b";
+				PROVISIONING_PROFILE = "26841ca5-2741-4866-b2ad-ee79fa265d5a";
 			};
 			name = Release;
 		};

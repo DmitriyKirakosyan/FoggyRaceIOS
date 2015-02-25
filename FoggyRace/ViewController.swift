@@ -12,12 +12,13 @@ import AVFoundation
 
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDelegate {
     @IBOutlet weak var roadView: UIImageView!
     @IBOutlet weak var scoreLabel: UILabel!
     
     var obstacleBehaviour: ObstacleBehaviour!
-    
+    var bonusManager: BonusManager!
+    var energyManager: EnergyManager!
 
     var roadLinesView:  RoadLinesView!
 
@@ -56,6 +57,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundMusic.play()
+        
+        self.bonusManager = BonusManager(stageView: self.view, fieldsNum: FIELDS_NUM)
+        self.bonusManager.delegate = self
+        self.energyManager = EnergyManager(stageView: self.view)
+        self.energyManager.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -75,7 +81,7 @@ class ViewController: UIViewController {
         //self.createFog()
         self.drawCar()
         self.runObstacles()
-
+        self.runManagers()
         self.addRecognizers()
         self.scheduleTickTimer()
         
@@ -85,14 +91,23 @@ class ViewController: UIViewController {
     func restartGame() {
         self.removeRecognizers()
         
+        self.obstacleBehaviour.clean()
+        
         self.carField = 3
         self.updateHeroPosition()
         
         self.obstacleBehaviour.run()
+        self.runManagers()
         self.addRecognizers()
         self.scheduleTickTimer()
         
         scoreLabel.text = "0"
+    }
+    
+    func runManagers() {
+        self.bonusManager.run()
+        self.energyManager.setFullEnergy()
+        self.energyManager.run()
     }
     
     func addRecognizers() {
@@ -113,7 +128,6 @@ class ViewController: UIViewController {
             }
         }
     }
-    
        
     func runObstacles() {
         obstacleBehaviour = ObstacleBehaviour(roadView: self.roadView, linesNum: FIELDS_NUM-1)
@@ -167,21 +181,6 @@ class ViewController: UIViewController {
         )
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        self.obstacleBehaviour.hide()
-    }
-    
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-        if !self.moving { self.obstacleBehaviour.show() }
-    }
-    
-    override func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
-        if !self.moving  { self.obstacleBehaviour.show() }
-    }
-    
-    func handleTap(tap: UITapGestureRecognizer) {
-    }
-    
     func normalizeCarRotation()
     {
         self.carView.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(0)))
@@ -202,8 +201,6 @@ class ViewController: UIViewController {
         if self.carField < 0 { self.carField = 0 }
         self.stopCar()
         
-        
-        
         //let nextX: CGFloat = CGFloat(self.carField) * COLUMN_WIDTH + COLUMN_WIDTH/2 - self.carView.frame.size.width/2
         UIView.animateWithDuration(NSTimeInterval(CAR_SWIPE_SPEED), delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: {
            self.updateHeroPosition()
@@ -217,6 +214,9 @@ class ViewController: UIViewController {
         if (carView.layer.presentationLayer() != nil && obstacleBehaviour.testHitRect(carView.layer.presentationLayer().frame)) {
             self.gameOver()
         } else {
+            self.bonusManager.setGameSpeed(self.obstacleBehaviour.getFallingSpeed())
+            self.bonusManager.tick(self.carView)
+            
             self.scoreLabel.text = String(self.obstacleBehaviour.fallsNum)
             
             if (self.moving)
@@ -230,11 +230,32 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    // Bonus manager delegate
+    
+    func energyPicked(bounsAmount: Int) {
+        self.energyManager.appendEnergy(bounsAmount, startIfStopped: true)
+    }
+    
+    //energy manager delegate
+    
+    func energyEmptied() {
+        self.obstacleBehaviour.hide()
+    }
+    
+    func energyIncreased() {
+        self.obstacleBehaviour.show()
+    }
+    
     func gameOver() {
         tickTimer!.invalidate()
         tickTimer = nil
         self.moving = false
         self.movingDirection = 0
+        
+        self.bonusManager.stop()
+        self.obstacleBehaviour.stop()
+        self.energyManager.stop()
 
         self.stopAllAnimations()
         self.removeRecognizers()
@@ -245,7 +266,6 @@ class ViewController: UIViewController {
     
     func stopAllAnimations() {
         self.stopCar()
-        self.obstacleBehaviour.stop()
     }
     
     func roadFieldWidth() -> CGFloat {
