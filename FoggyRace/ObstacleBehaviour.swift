@@ -148,13 +148,69 @@ class ObstacleBehaviour: UIView {
                 animations: {
                     obstacle.frame.origin.y = self.roadView.frame.size.height
                 }, completion: { finished in
-                    if obstacle.frame.origin.y == self.roadView.frame.size.height {
+                    if obstacle.frame.origin.y > self.roadView.frame.size.height-20 {
                         self.removeObstacle(obstacle)
                     }
                     
                 }
             )
+            
+
+           UIView.animateWithDuration(1.0, delay: 0, options: UIViewAnimationOptions.Repeat & .CurveLinear	,
+                animations: {
+                    obstacle.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(360)))
+                }, completion: {
+                    finished in
+                }
+            )
+            
+           /* CABasicAnimation* rotationAnimation
+            rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"
+            rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2.0 /* full rotation*/ * rotations * duration ]
+            rotationAnimation.duration = duration
+            rotationAnimation.cumulative = YES
+            rotationAnimation.repeatCount = repeat
+            
+           */
+            
+            let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
+            rotateAnimation.fromValue = 0.0
+            rotateAnimation.toValue = CGFloat(M_PI * 2.0)
+            rotateAnimation.duration = 1.0
+            rotateAnimation.repeatCount = MAXFLOAT
+
+            obstacle.layer.addAnimation(rotateAnimation, forKey: nil)
+
         }
+            /*let duration = 2.0
+            let delay = 0.0
+            let options = UIViewKeyframeAnimationOptions.CalculationModeLinear & .Repeat
+            let fullRotation = CGFloat(M_PI * 2)
+
+            UIView.animateKeyframesWithDuration(duration, delay: delay, options: options, animations: {
+                // each keyframe needs to be added here
+                // within each keyframe the relativeStartTime and relativeDuration need to be values between 0.0 and 1.0
+                
+                UIView.addKeyframeWithRelativeStartTime(0, relativeDuration: 1/3, animations: {
+                    // start at 0.00s (5s × 0)
+                    // duration 1.67s (5s × 1/3)
+                    // end at   1.67s (0.00s + 1.67s)
+                    obstacle.transform = CGAffineTransformMakeRotation(1/3 * fullRotation)
+                })
+                UIView.addKeyframeWithRelativeStartTime(1/3, relativeDuration: 1/3, animations: {
+                    obstacle.transform = CGAffineTransformMakeRotation(2/3 * fullRotation)
+                })
+                UIView.addKeyframeWithRelativeStartTime(2/3, relativeDuration: 1/3, animations: {
+                    obstacle.transform = CGAffineTransformMakeRotation(3/3 * fullRotation)
+                })
+                
+                }, completion: {finished in
+                    // any code entered here will be applied
+                    // once the animation has completed
+                    
+            })*/
+        
+        
     }
     
     
@@ -200,4 +256,6 @@ class ObstacleBehaviour: UIView {
     func getFallingSpeed() -> CGFloat {
         return currentFallingSpeed
     }
+    
+
 }
