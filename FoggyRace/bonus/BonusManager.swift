@@ -33,15 +33,11 @@ class BonusManager: NSObject {
         self.fieldsNum = fieldsNum
     }
     
-    func setGameSpeed(speed: CGFloat) {
-        self.gameSpeed = speed
-    }
-    
     func tick(heroView: UIView) {
         var result: BonusView? = nil
         for bonus in bonuses {
             if (bonus.layer.presentationLayer() != nil &&
-                bonus.layer.presentationLayer().frame.intersects(heroView.frame)) {
+                bonus.layer.presentationLayer()!.frame.intersects(heroView.frame)) {
                     result = bonus
                     break
             }
@@ -77,7 +73,7 @@ class BonusManager: NSObject {
     //private
     
     func shootBonus(){
-        var bonus = BonusView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        let bonus = BonusView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         bonuses.append(bonus)
         
         
@@ -99,8 +95,8 @@ class BonusManager: NSObject {
     
     func removeBonus(bonus: BonusView) {
         bonus.removeFromSuperview()
-        if find(self.bonuses, bonus) != nil {
-            self.bonuses.removeAtIndex(find(self.bonuses, bonus)!)
+        if self.bonuses.indexOf(bonus) != nil {
+            self.bonuses.removeAtIndex(self.bonuses.indexOf(bonus)!)
         }
     }
 

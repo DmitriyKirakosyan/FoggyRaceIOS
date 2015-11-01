@@ -45,9 +45,9 @@ class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDeleg
     
     lazy var backgroundMusic: AVAudioPlayer = {
         let url = NSBundle.mainBundle().URLForResource("radio", withExtension: "mp3")
-        let player = AVAudioPlayer(contentsOfURL: url, error: nil)
-        player.numberOfLoops = -1
-        return player
+        let player = try? AVAudioPlayer(contentsOfURL: url!)
+        player!.numberOfLoops = -1
+        return player!
     }()
 
 
@@ -111,8 +111,8 @@ class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDeleg
     }
     
     func addRecognizers() {
-        var swipeLeft = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipe:"))
-        var swipeRight = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipe:"))
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipe:"))
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipe:"))
 
         swipeLeft.direction = UISwipeGestureRecognizerDirection.Left;
         swipeRight.direction = UISwipeGestureRecognizerDirection.Right;
@@ -147,7 +147,7 @@ class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDeleg
     }
     
     func drawCar() {
-        var image = UIImage(named: "hero.png")
+        let image = UIImage(named: "hero.png")
         carView = UIImageView(image: image)
         carView.frame.origin.x = roadView.frame.size.width/2 - carView.frame.size.width/2
         
@@ -164,14 +164,14 @@ class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDeleg
         let rotationSpeed = NSTimeInterval(CAR_SWIPE_SPEED)
         UIView.animateWithDuration(rotationSpeed,
             delay: 0.0,
-            options: nil,
+            options: [],
             animations: {
                 self.carView.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(Float(direction) * 30)))
             },
             completion: { finished in
                 UIView.animateWithDuration(rotationSpeed,
                     delay: 0.0,
-                    options: nil,
+                    options: [],
                     animations: {
                         self.carView.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(0)))
                     },
@@ -189,7 +189,7 @@ class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDeleg
     func stopCar() {
         self.normalizeCarRotation()
         
-        let layer:CALayer = self.carView.layer.presentationLayer() as CALayer;
+        let layer:CALayer = self.carView.layer.presentationLayer() as! CALayer;
         
         self.carView.layer.removeAllAnimations()
         self.carView.frame.origin = layer.frame.origin;
@@ -211,10 +211,10 @@ class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDeleg
     }
     
     func onTick() {
-        if (carView.layer.presentationLayer() != nil && obstacleBehaviour.testHitRect(carView.layer.presentationLayer().frame)) {
+        if (carView.layer.presentationLayer() != nil && obstacleBehaviour.testHitRect(carView.layer.presentationLayer()!.frame)) {
             self.gameOver()
         } else {
-            self.bonusManager.setGameSpeed(self.obstacleBehaviour.getFallingSpeed())
+            self.bonusManager.gameSpeed = self.obstacleBehaviour.getFallingSpeed()
             self.bonusManager.tick(self.carView)
             
             self.scoreLabel.text = String(self.obstacleBehaviour.fallsNum)
@@ -260,7 +260,7 @@ class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDeleg
         self.stopAllAnimations()
         self.removeRecognizers()
 
-        var tap = UITapGestureRecognizer(target :self, action:Selector("restartGame"));
+        let tap = UITapGestureRecognizer(target :self, action:Selector("restartGame"));
         self.roadView.addGestureRecognizer(tap)
     }
     

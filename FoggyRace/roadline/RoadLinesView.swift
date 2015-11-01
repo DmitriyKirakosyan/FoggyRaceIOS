@@ -18,14 +18,14 @@ class RoadLinesView: UIView {
         self.createLines()
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     
     func createLines() {
         for i in 0...linesNum-1 {
-            var line = AnimatedLineView(frame: CGRect(x: 0, y: 0, width: 7, height: self.frame.height))
+            let line = AnimatedLineView(frame: CGRect(x: 0, y: 0, width: 7, height: self.frame.height))
             lines.append(line)
             let gapSize:CGFloat = self.frame.size.width / CGFloat(linesNum + 1)
             line.frame.origin.x = gapSize + CGFloat(i) * gapSize

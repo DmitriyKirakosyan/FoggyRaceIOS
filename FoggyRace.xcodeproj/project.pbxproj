@@ -232,6 +232,8 @@
 		327B67401A0A1EF5006B2745 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Glowman;
 				TargetAttributes = {

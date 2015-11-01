@@ -21,7 +21,7 @@ class ObstacleBehaviour: UIView {
     var currentFallingSpeed: CGFloat = 0
     let REDUCE_FALLING_SPEED: CGFloat = 0.1
     let START_FALLING_SPEED: CGFloat = 3.5
-    
+
     var currentSpeed: CGFloat = 0
     var lowestSpeed: CGFloat = 0.8
     let REDUCE_SPEED_FACTOR: CGFloat = 0.01
@@ -41,15 +41,15 @@ class ObstacleBehaviour: UIView {
         roadView.addSubview(self)
     }
     
-    override init() {
-        super.init()
+    init() {
+        super.init(frame: CGRectZero)
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -71,7 +71,7 @@ class ObstacleBehaviour: UIView {
         var result: Bool = false
         for obstacle in obstacles {
             if (obstacle.layer.presentationLayer() != nil) {
-                var frameForCheck = obstacle.layer.presentationLayer().frame
+                var frameForCheck = obstacle.layer.presentationLayer()!.frame
                 frameForCheck.size = CGSize(width: frameForCheck.size.width/2, height: frameForCheck.size.height/2)
                 frameForCheck.origin = CGPoint(x: frameForCheck.origin.x + frameForCheck.size.width/2, y: frameForCheck.origin.y + frameForCheck.size.height/2)
                 
@@ -95,7 +95,7 @@ class ObstacleBehaviour: UIView {
         stopped = true
         for obstacle in obstacles {
 
-            obstacle.frame.origin = obstacle.layer.presentationLayer().frame.origin
+            obstacle.frame.origin = obstacle.layer.presentationLayer()!.frame.origin
 
             obstacle.layer.removeAllAnimations()
           //  self.removeObstacle(obstacle)
@@ -139,7 +139,7 @@ class ObstacleBehaviour: UIView {
         
         
         if (!self.testHitRect(obstacleFrame)) {
-            var obstacle = self.createObstacle(obstacleFrame)
+            let obstacle = self.createObstacle(obstacleFrame)
             obstacles.append(obstacle)
             
             self.addSubview(obstacle)
@@ -156,7 +156,7 @@ class ObstacleBehaviour: UIView {
             )
             
 
-           UIView.animateWithDuration(1.0, delay: 0, options: UIViewAnimationOptions.Repeat & .CurveLinear	,
+           UIView.animateWithDuration(1.0, delay: 0, options: UIViewAnimationOptions.Repeat.intersect(.CurveLinear)	,
                 animations: {
                     obstacle.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(360)))
                 }, completion: {
@@ -218,12 +218,12 @@ class ObstacleBehaviour: UIView {
     
     func removeObstacle(obstacle: UIView) {
         obstacle.removeFromSuperview()
-        self.obstacles.removeAtIndex(find(obstacles, obstacle)!)
+        self.obstacles.removeAtIndex(obstacles.indexOf(obstacle)!)
         self.fallsNum++
     }
     
     func createObstacle(frame: CGRect) -> ObstacleView {
-        var result = ObstacleView(frame: frame)
+        let result = ObstacleView(frame: frame)
         result.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(180)))
         //result.frame.size = CGSize(width: self.getObstacleSize(), height: self.getObstacleSize())
         

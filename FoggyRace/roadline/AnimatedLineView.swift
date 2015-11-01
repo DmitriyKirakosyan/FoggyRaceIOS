@@ -13,8 +13,8 @@ class AnimatedLineView: UIView {
     var line1: UIView!
     var line2: UIView!
     
-    override init() {
-        super.init()
+    init() {
+        super.init(frame: CGRectZero)
     }
     
     override init(frame: CGRect) {
@@ -29,12 +29,12 @@ class AnimatedLineView: UIView {
         self.addSubview(line2)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     func animate() {
-        UIView.animateWithDuration(self.getFallingInterval(), delay: 0, options: UIViewAnimationOptions.Repeat | .CurveLinear,
+        UIView.animateWithDuration(self.getFallingInterval(), delay: 0, options: [UIViewAnimationOptions.Repeat, .CurveLinear],
             animations: {
                 self.line1.frame.origin.y = self.frame.size.height
             }, completion: { Finished in
@@ -42,7 +42,7 @@ class AnimatedLineView: UIView {
             }
         )
         
-        UIView.animateWithDuration(self.getFallingInterval(), delay: 0, options: UIViewAnimationOptions.Repeat | .CurveLinear,
+        UIView.animateWithDuration(self.getFallingInterval(), delay: 0, options: [UIViewAnimationOptions.Repeat, .CurveLinear],
             animations: {
                 self.line2.frame.origin.y = 4
             }, completion: { Finished in
@@ -58,7 +58,7 @@ class AnimatedLineView: UIView {
 
     func createLine() -> UIImageView {
         let image = UIImage(named: "line.png")
-        var result = UIImageView(image: image);
+        let result = UIImageView(image: image);
         result.frame.size = self.frame.size;
         
         return result
