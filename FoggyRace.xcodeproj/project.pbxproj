@@ -8,23 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		2C6AA0891A87CE4000F2DA1D /* radio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AA0881A87CE4000F2DA1D /* radio.mp3 */; };
-		327B674E1A0A1EF5006B2745 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B674D1A0A1EF5006B2745 /* AppDelegate.swift */; };
-		327B67501A0A1EF5006B2745 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B674F1A0A1EF5006B2745 /* ViewController.swift */; };
+		2C89607E1BFDA639004D8202 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C89606E1BFDA639004D8202 /* AppDelegate.swift */; };
+		2C89607F1BFDA639004D8202 /* BonusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8960701BFDA639004D8202 /* BonusManager.swift */; };
+		2C8960801BFDA639004D8202 /* BonusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8960711BFDA639004D8202 /* BonusView.swift */; };
+		2C8960811BFDA639004D8202 /* EnergyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8960731BFDA639004D8202 /* EnergyManager.swift */; };
+		2C8960851BFDA639004D8202 /* ObstacleBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8960781BFDA639004D8202 /* ObstacleBehaviour.swift */; };
+		2C8960861BFDA639004D8202 /* ObstacleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8960791BFDA639004D8202 /* ObstacleView.swift */; };
+		2C8960871BFDA639004D8202 /* AnimatedLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C89607B1BFDA639004D8202 /* AnimatedLineView.swift */; };
+		2C8960881BFDA639004D8202 /* RoadLinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C89607C1BFDA639004D8202 /* RoadLinesView.swift */; };
+		2C8960891BFDA639004D8202 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C89607D1BFDA639004D8202 /* ViewController.swift */; };
+		2C89608B1BFDA75D004D8202 /* ObstaclePatternFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C89608A1BFDA75D004D8202 /* ObstaclePatternFactory.swift */; };
+		2C89608E1BFDA808004D8202 /* road_patterns.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C89608D1BFDA808004D8202 /* road_patterns.json */; };
+		2C8960901BFDABA2004D8202 /* RoadPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C89608F1BFDABA2004D8202 /* RoadPattern.swift */; };
 		327B67531A0A1EF5006B2745 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 327B67511A0A1EF5006B2745 /* Main.storyboard */; };
 		327B67551A0A1EF5006B2745 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 327B67541A0A1EF5006B2745 /* Images.xcassets */; };
 		327B67581A0A1EF5006B2745 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 327B67561A0A1EF5006B2745 /* LaunchScreen.xib */; };
 		327B67641A0A1EF5006B2745 /* FoggyRaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B67631A0A1EF5006B2745 /* FoggyRaceTests.swift */; };
-		327B679B1A0BFC5D006B2745 /* ObstacleBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B679A1A0BFC5D006B2745 /* ObstacleBehaviour.swift */; };
-		32B3D8731A4AF4E400D3B563 /* ObstacleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B3D8721A4AF4E400D3B563 /* ObstacleView.swift */; };
-		32C26DBB1A977DAB00670E82 /* RoadLinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C26DBA1A977DAB00670E82 /* RoadLinesView.swift */; };
-		32C26DBD1A977DCB00670E82 /* AnimatedLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C26DBC1A977DCB00670E82 /* AnimatedLineView.swift */; };
 		32D2B8EA1A95FCFC00757272 /* bkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D2B8E91A95FCFC00757272 /* bkg.png */; };
 		32D2B8EC1A95FD0600757272 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D2B8EB1A95FD0600757272 /* enemy.png */; };
 		32D2B8EE1A95FD0D00757272 /* hero.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D2B8ED1A95FD0D00757272 /* hero.png */; };
 		32D2B8F01A95FD6B00757272 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D2B8EF1A95FD6B00757272 /* line.png */; };
-		32EE6C5D1A9A269700AC995A /* BonusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE6C5C1A9A269700AC995A /* BonusManager.swift */; };
-		32EE6C601A9A28E000AC995A /* EnergyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE6C5F1A9A28E000AC995A /* EnergyManager.swift */; };
-		32EE6C621A9A35E400AC995A /* BonusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE6C611A9A35E400AC995A /* BonusView.swift */; };
 		32EE6C671A9A50EA00AC995A /* battery_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 32EE6C651A9A50EA00AC995A /* battery_empty.png */; };
 		32EE6C681A9A50EA00AC995A /* battery_bonus.png in Resources */ = {isa = PBXBuildFile; fileRef = 32EE6C661A9A50EA00AC995A /* battery_bonus.png */; };
 /* End PBXBuildFile section */
@@ -41,28 +44,31 @@
 
 /* Begin PBXFileReference section */
 		2C6AA0881A87CE4000F2DA1D /* radio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = radio.mp3; sourceTree = "<group>"; };
+		2C89606E1BFDA639004D8202 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2C8960701BFDA639004D8202 /* BonusManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusManager.swift; sourceTree = "<group>"; };
+		2C8960711BFDA639004D8202 /* BonusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusView.swift; sourceTree = "<group>"; };
+		2C8960731BFDA639004D8202 /* EnergyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyManager.swift; sourceTree = "<group>"; };
+		2C8960781BFDA639004D8202 /* ObstacleBehaviour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObstacleBehaviour.swift; sourceTree = "<group>"; };
+		2C8960791BFDA639004D8202 /* ObstacleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObstacleView.swift; sourceTree = "<group>"; };
+		2C89607B1BFDA639004D8202 /* AnimatedLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedLineView.swift; sourceTree = "<group>"; };
+		2C89607C1BFDA639004D8202 /* RoadLinesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoadLinesView.swift; sourceTree = "<group>"; };
+		2C89607D1BFDA639004D8202 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2C89608A1BFDA75D004D8202 /* ObstaclePatternFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObstaclePatternFactory.swift; sourceTree = "<group>"; };
+		2C89608D1BFDA808004D8202 /* road_patterns.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = road_patterns.json; sourceTree = "<group>"; };
+		2C89608F1BFDABA2004D8202 /* RoadPattern.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoadPattern.swift; sourceTree = "<group>"; };
 		327B67481A0A1EF5006B2745 /* FoggyRace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoggyRace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		327B674C1A0A1EF5006B2745 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		327B674D1A0A1EF5006B2745 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		327B674F1A0A1EF5006B2745 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		327B67521A0A1EF5006B2745 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		327B67541A0A1EF5006B2745 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		327B67571A0A1EF5006B2745 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		327B675D1A0A1EF5006B2745 /* FoggyRaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoggyRaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		327B67621A0A1EF5006B2745 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		327B67631A0A1EF5006B2745 /* FoggyRaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoggyRaceTests.swift; sourceTree = "<group>"; };
-		327B679A1A0BFC5D006B2745 /* ObstacleBehaviour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObstacleBehaviour.swift; sourceTree = "<group>"; };
-		32B3D8721A4AF4E400D3B563 /* ObstacleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObstacleView.swift; sourceTree = "<group>"; };
 		32B3D8741A4D8FEC00D3B563 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		32C26DBA1A977DAB00670E82 /* RoadLinesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoadLinesView.swift; sourceTree = "<group>"; };
-		32C26DBC1A977DCB00670E82 /* AnimatedLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedLineView.swift; sourceTree = "<group>"; };
 		32D2B8E91A95FCFC00757272 /* bkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bkg.png; sourceTree = "<group>"; };
 		32D2B8EB1A95FD0600757272 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
 		32D2B8ED1A95FD0D00757272 /* hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hero.png; sourceTree = "<group>"; };
 		32D2B8EF1A95FD6B00757272 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
-		32EE6C5C1A9A269700AC995A /* BonusManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BonusManager.swift; path = bonus/BonusManager.swift; sourceTree = "<group>"; };
-		32EE6C5F1A9A28E000AC995A /* EnergyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EnergyManager.swift; path = energy/EnergyManager.swift; sourceTree = "<group>"; };
-		32EE6C611A9A35E400AC995A /* BonusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BonusView.swift; path = bonus/BonusView.swift; sourceTree = "<group>"; };
 		32EE6C651A9A50EA00AC995A /* battery_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = battery_empty.png; sourceTree = "<group>"; };
 		32EE6C661A9A50EA00AC995A /* battery_bonus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = battery_bonus.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +91,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C89606D1BFDA639004D8202 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2C89606E1BFDA639004D8202 /* AppDelegate.swift */,
+				2C89606F1BFDA639004D8202 /* bonus */,
+				2C8960721BFDA639004D8202 /* energy */,
+				2C8960771BFDA639004D8202 /* obstacles */,
+				2C89607A1BFDA639004D8202 /* roadline */,
+				2C89607D1BFDA639004D8202 /* ViewController.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		2C89606F1BFDA639004D8202 /* bonus */ = {
+			isa = PBXGroup;
+			children = (
+				2C8960701BFDA639004D8202 /* BonusManager.swift */,
+				2C8960711BFDA639004D8202 /* BonusView.swift */,
+			);
+			path = bonus;
+			sourceTree = "<group>";
+		};
+		2C8960721BFDA639004D8202 /* energy */ = {
+			isa = PBXGroup;
+			children = (
+				2C8960731BFDA639004D8202 /* EnergyManager.swift */,
+			);
+			path = energy;
+			sourceTree = "<group>";
+		};
+		2C8960771BFDA639004D8202 /* obstacles */ = {
+			isa = PBXGroup;
+			children = (
+				2C8960781BFDA639004D8202 /* ObstacleBehaviour.swift */,
+				2C8960791BFDA639004D8202 /* ObstacleView.swift */,
+				2C89608A1BFDA75D004D8202 /* ObstaclePatternFactory.swift */,
+				2C89608F1BFDABA2004D8202 /* RoadPattern.swift */,
+			);
+			path = obstacles;
+			sourceTree = "<group>";
+		};
+		2C89607A1BFDA639004D8202 /* roadline */ = {
+			isa = PBXGroup;
+			children = (
+				2C89607B1BFDA639004D8202 /* AnimatedLineView.swift */,
+				2C89607C1BFDA639004D8202 /* RoadLinesView.swift */,
+			);
+			path = roadline;
+			sourceTree = "<group>";
+		};
+		2C89608C1BFDA808004D8202 /* patterns */ = {
+			isa = PBXGroup;
+			children = (
+				2C89608D1BFDA808004D8202 /* road_patterns.json */,
+			);
+			path = patterns;
+			sourceTree = "<group>";
+		};
 		327B673F1A0A1EF5006B2745 = {
 			isa = PBXGroup;
 			children = (
@@ -107,14 +171,8 @@
 		327B674A1A0A1EF5006B2745 /* FoggyRace */ = {
 			isa = PBXGroup;
 			children = (
-				32EE6C5E1A9A28C100AC995A /* energy */,
-				32EE6C5B1A9A267E00AC995A /* bonus */,
-				32C26DB91A977DAB00670E82 /* roadline */,
+				2C89606D1BFDA639004D8202 /* Classes */,
 				327B676D1A0A4167006B2745 /* Resources */,
-				327B674D1A0A1EF5006B2745 /* AppDelegate.swift */,
-				327B674F1A0A1EF5006B2745 /* ViewController.swift */,
-				327B679A1A0BFC5D006B2745 /* ObstacleBehaviour.swift */,
-				32B3D8721A4AF4E400D3B563 /* ObstacleView.swift */,
 				327B67511A0A1EF5006B2745 /* Main.storyboard */,
 				327B67541A0A1EF5006B2745 /* Images.xcassets */,
 				327B67561A0A1EF5006B2745 /* LaunchScreen.xib */,
@@ -151,6 +209,7 @@
 		327B676D1A0A4167006B2745 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2C89608C1BFDA808004D8202 /* patterns */,
 				32EE6C651A9A50EA00AC995A /* battery_empty.png */,
 				32EE6C661A9A50EA00AC995A /* battery_bonus.png */,
 				2C6AA0881A87CE4000F2DA1D /* radio.mp3 */,
@@ -160,32 +219,6 @@
 				32D2B8E91A95FCFC00757272 /* bkg.png */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		32C26DB91A977DAB00670E82 /* roadline */ = {
-			isa = PBXGroup;
-			children = (
-				32C26DBA1A977DAB00670E82 /* RoadLinesView.swift */,
-				32C26DBC1A977DCB00670E82 /* AnimatedLineView.swift */,
-			);
-			path = roadline;
-			sourceTree = "<group>";
-		};
-		32EE6C5B1A9A267E00AC995A /* bonus */ = {
-			isa = PBXGroup;
-			children = (
-				32EE6C5C1A9A269700AC995A /* BonusManager.swift */,
-				32EE6C611A9A35E400AC995A /* BonusView.swift */,
-			);
-			name = bonus;
-			sourceTree = "<group>";
-		};
-		32EE6C5E1A9A28C100AC995A /* energy */ = {
-			isa = PBXGroup;
-			children = (
-				32EE6C5F1A9A28E000AC995A /* EnergyManager.swift */,
-			);
-			name = energy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,7 +267,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Glowman;
 				TargetAttributes = {
 					327B67471A0A1EF5006B2745 = {
@@ -276,6 +309,7 @@
 				327B67531A0A1EF5006B2745 /* Main.storyboard in Resources */,
 				327B67581A0A1EF5006B2745 /* LaunchScreen.xib in Resources */,
 				32EE6C681A9A50EA00AC995A /* battery_bonus.png in Resources */,
+				2C89608E1BFDA808004D8202 /* road_patterns.json in Resources */,
 				327B67551A0A1EF5006B2745 /* Images.xcassets in Resources */,
 				32D2B8EE1A95FD0D00757272 /* hero.png in Resources */,
 				32D2B8F01A95FD6B00757272 /* line.png in Resources */,
@@ -298,15 +332,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32EE6C621A9A35E400AC995A /* BonusView.swift in Sources */,
-				327B679B1A0BFC5D006B2745 /* ObstacleBehaviour.swift in Sources */,
-				327B67501A0A1EF5006B2745 /* ViewController.swift in Sources */,
-				32B3D8731A4AF4E400D3B563 /* ObstacleView.swift in Sources */,
-				32EE6C601A9A28E000AC995A /* EnergyManager.swift in Sources */,
-				327B674E1A0A1EF5006B2745 /* AppDelegate.swift in Sources */,
-				32C26DBB1A977DAB00670E82 /* RoadLinesView.swift in Sources */,
-				32EE6C5D1A9A269700AC995A /* BonusManager.swift in Sources */,
-				32C26DBD1A977DCB00670E82 /* AnimatedLineView.swift in Sources */,
+				2C8960801BFDA639004D8202 /* BonusView.swift in Sources */,
+				2C89607E1BFDA639004D8202 /* AppDelegate.swift in Sources */,
+				2C89608B1BFDA75D004D8202 /* ObstaclePatternFactory.swift in Sources */,
+				2C8960881BFDA639004D8202 /* RoadLinesView.swift in Sources */,
+				2C89607F1BFDA639004D8202 /* BonusManager.swift in Sources */,
+				2C8960861BFDA639004D8202 /* ObstacleView.swift in Sources */,
+				2C8960901BFDABA2004D8202 /* RoadPattern.swift in Sources */,
+				2C8960891BFDA639004D8202 /* ViewController.swift in Sources */,
+				2C8960851BFDA639004D8202 /* ObstacleBehaviour.swift in Sources */,
+				2C8960811BFDA639004D8202 /* EnergyManager.swift in Sources */,
+				2C8960871BFDA639004D8202 /* AnimatedLineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +405,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dmitry Kirakosyan (E4FQGRSSA4)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -441,6 +478,7 @@
 				INFOPLIST_FILE = FoggyRace/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.glowman.foggyrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2c851033-6aa3-4152-932b-c2371f2f684a";
 			};
@@ -456,6 +494,7 @@
 				INFOPLIST_FILE = FoggyRace/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.glowman.foggyrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2c851033-6aa3-4152-932b-c2371f2f684a";
 			};
@@ -475,6 +514,7 @@
 				);
 				INFOPLIST_FILE = FoggyRaceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.glowman.foggyrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoggyRace.app/FoggyRace";
 			};
@@ -490,6 +530,7 @@
 				);
 				INFOPLIST_FILE = FoggyRaceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.glowman.foggyrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoggyRace.app/FoggyRace";
 			};
