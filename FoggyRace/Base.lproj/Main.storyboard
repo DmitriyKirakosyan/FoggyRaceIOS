@@ -1,8 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Vfi-bn-l14">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Vfi-bn-l14">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -14,26 +19,27 @@
                         <viewControllerLayoutGuide type="bottom" id="HD5-Xv-efy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uc7-L3-zbW">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfU-qp-uVG">
-                                <rect key="frame" x="211" y="214" width="347" height="242"/>
-                                <animations/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfU-qp-uVG">
+                                <rect key="frame" x="141" y="297.5" width="93" height="72"/>
+                                <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <state key="normal" title="Play">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" identifier="GameScreen" modalTransitionStyle="flipHorizontal" id="4QS-DR-uho"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="yfU-qp-uVG" firstAttribute="centerY" secondItem="uc7-L3-zbW" secondAttribute="centerY" id="QNW-ms-4B6"/>
+                            <constraint firstItem="yfU-qp-uVG" firstAttribute="centerX" secondItem="uc7-L3-zbW" secondAttribute="centerX" id="oGg-QO-49l"/>
+                        </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RPA-wp-VYh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -48,41 +54,58 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qzg-1v-ykD">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qzg-1v-ykD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bkg.png" translatesAutoresizingMaskIntoConstraints="NO" id="rna-7A-8HI">
-                                        <rect key="frame" x="-142" y="-228" width="992" height="1252"/>
-                                        <animations/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="road.png" translatesAutoresizingMaskIntoConstraints="NO" id="rna-7A-8HI" userLabel="background">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5C2-0L-5Yu" userLabel="road">
+                                        <rect key="frame" x="56.5" y="0.0" width="262.5" height="667"/>
+                                        <color key="backgroundColor" red="0.59999999999999998" green="0.74509803919999995" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVu-wI-goB">
                                         <rect key="frame" x="35" y="26" width="118" height="40"/>
-                                        <animations/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="40"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="9999" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGj-x2-8oR">
-                                        <rect key="frame" x="162" y="28" width="220" height="36"/>
-                                        <animations/>
+                                        <rect key="frame" x="162" y="28" width="180" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="40"/>
-                                        <color key="textColor" red="0.75243132470108876" green="1" blue="0.59349322871777055" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.75243132470108876" green="1" blue="0.59349322871777055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="5C2-0L-5Yu" firstAttribute="centerY" secondItem="Qzg-1v-ykD" secondAttribute="centerY" id="6Cs-78-LsW"/>
+                                    <constraint firstItem="rna-7A-8HI" firstAttribute="centerY" secondItem="Qzg-1v-ykD" secondAttribute="centerY" id="PEZ-Ii-tUw"/>
+                                    <constraint firstItem="rna-7A-8HI" firstAttribute="height" secondItem="Qzg-1v-ykD" secondAttribute="height" id="coe-IG-ct4"/>
+                                    <constraint firstItem="5C2-0L-5Yu" firstAttribute="height" secondItem="Qzg-1v-ykD" secondAttribute="height" id="g0F-dc-dbd"/>
+                                    <constraint firstItem="rna-7A-8HI" firstAttribute="centerX" secondItem="Qzg-1v-ykD" secondAttribute="centerX" id="gXv-ec-FxY"/>
+                                    <constraint firstItem="5C2-0L-5Yu" firstAttribute="width" secondItem="Qzg-1v-ykD" secondAttribute="width" multiplier="0.7" id="ln3-fm-Djr"/>
+                                    <constraint firstItem="5C2-0L-5Yu" firstAttribute="centerX" secondItem="Qzg-1v-ykD" secondAttribute="centerX" id="mDG-Wk-QZ4"/>
+                                    <constraint firstItem="rna-7A-8HI" firstAttribute="width" secondItem="Qzg-1v-ykD" secondAttribute="width" id="zgu-x7-Tf4"/>
+                                </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fog.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ihx-9h-379">
                                 <rect key="frame" x="0.0" y="161" width="768" height="702"/>
-                                <animations/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Qzg-1v-ykD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Kc-kB-S6h"/>
+                            <constraint firstItem="Qzg-1v-ykD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="H6p-OY-ScZ"/>
+                            <constraint firstItem="Qzg-1v-ykD" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="UhG-M7-Gon"/>
+                            <constraint firstItem="Qzg-1v-ykD" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="erv-XP-6nR"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Ihx-9h-379"/>
@@ -90,19 +113,18 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="FzY-As-cN4"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
-                        <outlet property="roadView" destination="Qzg-1v-ykD" id="QU4-24-QM8"/>
+                        <outlet property="roadView" destination="5C2-0L-5Yu" id="Ip1-L6-93k"/>
                         <outlet property="scoreLabel" destination="bGj-x2-8oR" id="ifl-ez-f4c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="229" y="184"/>
+            <point key="canvasLocation" x="228" y="183.95802098950526"/>
         </scene>
     </scenes>
     <resources>
-        <image name="bkg.png" width="768" height="1024"/>
         <image name="fog.png" width="1014" height="1043"/>
+        <image name="road.png" width="1024" height="768"/>
     </resources>
 </document>

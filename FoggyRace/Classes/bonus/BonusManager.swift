@@ -9,7 +9,7 @@
 import UIKit
 
 protocol BonusManagerDelegate {
-    func energyPicked(bounsAmount: Int)
+    func energyPicked(_ bounsAmount: Int)
 }
 
 class BonusManager: NSObject {
@@ -18,7 +18,7 @@ class BonusManager: NSObject {
     var stageView: UIView!
     var fieldsNum: Int = 0
     
-    var bonusReadyTimer: NSTimer?
+    var bonusReadyTimer: Timer?
     
     var gameSpeed: CGFloat = 0
     
@@ -33,11 +33,11 @@ class BonusManager: NSObject {
         self.fieldsNum = fieldsNum
     }
     
-    func tick(heroView: UIView) {
+    func tick(_ heroView: UIView) {
         var result: BonusView? = nil
         for bonus in bonuses {
-            if (bonus.layer.presentationLayer() != nil &&
-                bonus.layer.presentationLayer()!.frame.intersects(heroView.frame)) {
+            if (bonus.layer.presentation() != nil &&
+                bonus.layer.presentation()!.frame.intersects(heroView.frame)) {
                     result = bonus
                     break
             }
@@ -54,7 +54,7 @@ class BonusManager: NSObject {
     
     func run() {
         if self.bonusReadyTimer != nil { return }
-        self.bonusReadyTimer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("onBonusReadyTimer"), userInfo: nil, repeats: true)
+        self.bonusReadyTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(BonusManager.onBonusReadyTimer), userInfo: nil, repeats: true)
     }
     
     func stop() {
@@ -77,14 +77,14 @@ class BonusManager: NSObject {
         bonuses.append(bonus)
         
         
-        let line: Int = random() % (self.fieldsNum)
+        let line: Int = Int(arc4random() % UInt32(self.fieldsNum))
         bonus.frame.origin.y = -bonus.frame.size.height
         
         bonus.center.x = CGFloat(line) * self.getFieldWidth() + self.getFieldWidth()/2
         
         self.stageView.addSubview(bonus)
         
-        UIView.animateWithDuration(NSTimeInterval(self.gameSpeed), delay: 0, options: UIViewAnimationOptions.CurveLinear,
+        UIView.animate(withDuration: TimeInterval(self.gameSpeed), delay: 0, options: UIViewAnimationOptions.curveLinear,
             animations: {
                 bonus.frame.origin.y = self.stageView.frame.size.height
             }, completion: { finished in
@@ -93,10 +93,10 @@ class BonusManager: NSObject {
         )
     }
     
-    func removeBonus(bonus: BonusView) {
+    func removeBonus(_ bonus: BonusView) {
         bonus.removeFromSuperview()
-        if self.bonuses.indexOf(bonus) != nil {
-            self.bonuses.removeAtIndex(self.bonuses.indexOf(bonus)!)
+        if self.bonuses.index(of: bonus) != nil {
+            self.bonuses.remove(at: self.bonuses.index(of: bonus)!)
         }
     }
 

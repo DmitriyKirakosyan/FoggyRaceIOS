@@ -11,9 +11,11 @@ import UIKit
 
 class ObstacleView: UIImageView {
     
+    let images: [String] = ["obstacle1.png", "obstacle2.png", "obstacle3.png"];
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.image = UIImage(named: "enemy.png")
+        self.image = UIImage(named: images[Int(arc4random() % UInt32(images.count))])
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -27,7 +29,7 @@ class ObstacleView: UIImageView {
         rotateAnimation.duration = 5.0
         rotateAnimation.repeatCount = MAXFLOAT
         
-        self.layer.addAnimation(rotateAnimation, forKey: nil)
+        self.layer.add(rotateAnimation, forKey: nil)
     }
     
 }

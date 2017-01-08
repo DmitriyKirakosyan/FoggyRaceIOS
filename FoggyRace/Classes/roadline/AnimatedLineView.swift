@@ -14,14 +14,14 @@ class AnimatedLineView: UIView {
     var line2: UIView!
     
     init() {
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
 
         line1 = self.createLine()
-        line1.frame.origin = self.frame.origin
+//        line1.frame.origin = self.frame.origin
         line2 = self.createLine()
         line2.frame.origin.y = -self.frame.size.height + 4
         
@@ -34,7 +34,7 @@ class AnimatedLineView: UIView {
     }
     
     func animate() {
-        UIView.animateWithDuration(self.getFallingInterval(), delay: 0, options: [UIViewAnimationOptions.Repeat, .CurveLinear],
+        UIView.animate(withDuration: self.getFallingInterval(), delay: 0, options: [UIViewAnimationOptions.repeat, .curveLinear],
             animations: {
                 self.line1.frame.origin.y = self.frame.size.height
             }, completion: { Finished in
@@ -42,7 +42,7 @@ class AnimatedLineView: UIView {
             }
         )
         
-        UIView.animateWithDuration(self.getFallingInterval(), delay: 0, options: [UIViewAnimationOptions.Repeat, .CurveLinear],
+        UIView.animate(withDuration: self.getFallingInterval(), delay: 0, options: [UIViewAnimationOptions.repeat, .curveLinear],
             animations: {
                 self.line2.frame.origin.y = 4
             }, completion: { Finished in
@@ -52,7 +52,7 @@ class AnimatedLineView: UIView {
 
     }
 
-    func getFallingInterval() -> NSTimeInterval {
+    func getFallingInterval() -> TimeInterval {
         return 3
     }
 

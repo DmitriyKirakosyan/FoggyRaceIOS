@@ -12,17 +12,17 @@ class ObstaclePatternFactory: NSObject {
     
     let JSON_FILE_NAME = "road_patterns"
     
-    private var _patternsData : Array<RoadPattern>?;
+    fileprivate var _patternsData : Array<RoadPattern>?;
     
     override init() {
         super.init()
         
-        if let path = NSBundle.mainBundle().pathForResource(JSON_FILE_NAME, ofType: "json")
+        if let path = Bundle.main.path(forResource: JSON_FILE_NAME, ofType: "json")
         {
             do
             {
-                let jsonData = try NSData(contentsOfFile: path, options: NSDataReadingOptions.DataReadingMappedIfSafe)
-                if let jsonResult: NSArray = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as? NSArray
+                let jsonData = try Data(contentsOf: URL(fileURLWithPath: path), options: NSData.ReadingOptions.mappedIfSafe)
+                if let jsonResult: NSArray = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSArray
                 {
                     _patternsData = []
                     for patternObject in jsonResult {
@@ -40,7 +40,10 @@ class ObstaclePatternFactory: NSObject {
     
     func  getRandomPattern() -> RoadPattern? {
         if let patterns = _patternsData {
-            return patterns[random() % patterns.count];
+           
+            let index = arc4random() % UInt32(patterns.count)
+            
+            return patterns[Int(index)];
         }
         return nil;
     }

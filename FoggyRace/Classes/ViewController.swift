@@ -13,9 +13,9 @@ import AVFoundation
 
 
 class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDelegate {
-    @IBOutlet weak var roadView: UIImageView!
+
     @IBOutlet weak var scoreLabel: UILabel!
-    
+    @IBOutlet weak var roadView: UIView!
     var obstacleBehaviour: ObstacleBehaviour!
     var bonusManager: BonusManager!
     var energyManager: EnergyManager!
@@ -26,7 +26,7 @@ class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDeleg
     var movingDirection: Int = 0
     var panStartPoint: CGFloat = 0
     
-    var carView: UIView!
+    var heroView: HeroView!
     var carField: Int = 3
     let minCarPosition: Int = 0
     let maxCarPosition: Int = 5
@@ -34,25 +34,22 @@ class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDeleg
     let CAR_SWIPE_SPEED: CGFloat = 0.1
     
     let CAR_SPEED: CGFloat = 6
-    let COLUMN_WIDTH: CGFloat = 256
-    let ROAD_LINE_NUMS = 3
-    let PAN_DISTANCE: CGFloat = 200
     
     let FIELDS_NUM:Int = 6
     
-    var tickTimer: NSTimer?
+    var tickTimer: Timer?
     
     
     lazy var backgroundMusic: AVAudioPlayer = {
-        let url = NSBundle.mainBundle().URLForResource("radio", withExtension: "mp3")
-        let player = try? AVAudioPlayer(contentsOfURL: url!)
+        let url = Bundle.main.url(forResource: "radio", withExtension: "mp3")
+        let player = try? AVAudioPlayer(contentsOf: url!)
         player!.numberOfLoops = -1
         return player!
     }()
 
 
     
-    func DEGREES_TO_RADIANS(x: Float) -> Float { return Float(M_PI) * x / 180.0 }
+    func DEGREES_TO_RADIANS(_ x: Float) -> Float { return Float(M_PI) * x / 180.0 }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,9 +61,7 @@ class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDeleg
         self.energyManager.delegate = self
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    override func viewDidAppear(_ animated: Bool) {
         self.startGame()
     }
 
@@ -86,6 +81,8 @@ class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDeleg
         self.scheduleTickTimer()
         
         scoreLabel.text = "0"
+        
+        self.heroView.startAnimating()
     }
     
     func restartGame() {
@@ -111,11 +108,11 @@ class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDeleg
     }
     
     func addRecognizers() {
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipe:"))
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipe:"))
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.handleSwipe(_:)))
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.handleSwipe(_:)))
 
-        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left;
-        swipeRight.direction = UISwipeGestureRecognizerDirection.Right;
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left;
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right;
         
         roadView.addGestureRecognizer(swipeLeft)
         roadView.addGestureRecognizer(swipeRight)
@@ -128,52 +125,58 @@ class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDeleg
             }
         }
     }
-       
+    
+    
+    //MARK: - Obstacles
     func runObstacles() {
-        obstacleBehaviour = ObstacleBehaviour(roadView: self.roadView, linesNum: FIELDS_NUM-1)
+        obstacleBehaviour = ObstacleBehaviour(roadView: self.roadView, linesNum: FIELDS_NUM)
         obstacleBehaviour.run()
     }
     
+    //MARK: - Road Lines
     func runLines(){
-        roadLinesView = RoadLinesView(frame: self.roadView.frame, linesNum: FIELDS_NUM-1)
-        roadLinesView.userInteractionEnabled = false
+        roadLinesView = RoadLinesView(frame: CGRect(x: 0, y: 0, width: roadView.frame.size.width, height: roadView.frame.size.height), linesNum: FIELDS_NUM)
+        roadLinesView.isUserInteractionEnabled = false
 
         self.roadView.addSubview(roadLinesView);
         roadLinesView.run()
     }
     
     func scheduleTickTimer() {
-        tickTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("onTick"), userInfo: nil, repeats: true)
+        tickTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.onTick), userInfo: nil, repeats: true)
     }
     
     func drawCar() {
-        let image = UIImage(named: "hero.png")
-        carView = UIImageView(image: image)
-        carView.frame.origin.x = roadView.frame.size.width/2 - carView.frame.size.width/2
+        heroView = HeroView()
+        let heroSize = roadView.frame.size.width / CGFloat(FIELDS_NUM)
+        heroView.frame = CGRect(x: 0, y: 0, width: heroSize, height: heroSize)
+        
+//        heroView.backgroundColor = .red
         
         self.updateHeroPosition()
-        carView.frame.origin.y = roadView.frame.height - carView.frame.size.height - 10
         
-        roadView.addSubview(carView);
+        heroView.frame.origin.y = roadView.frame.height - heroView.frame.size.height - 10
+        
+        roadView.addSubview(heroView);
     }
 
     
-    func handleSwipe(swipe: UISwipeGestureRecognizer) {
-        let direction = swipe.direction == UISwipeGestureRecognizerDirection.Left ? -1 : 1
+    func handleSwipe(_ swipe: UISwipeGestureRecognizer) {
+        let direction = swipe.direction == UISwipeGestureRecognizerDirection.left ? -1 : 1
         self.moveCar(direction)
-        let rotationSpeed = NSTimeInterval(CAR_SWIPE_SPEED)
-        UIView.animateWithDuration(rotationSpeed,
+        let rotationSpeed = TimeInterval(CAR_SWIPE_SPEED)
+        UIView.animate(withDuration: rotationSpeed,
             delay: 0.0,
             options: [],
             animations: {
-                self.carView.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(Float(direction) * 30)))
+                self.heroView.transform = CGAffineTransform(rotationAngle: CGFloat(self.DEGREES_TO_RADIANS(Float(direction) * 30)))
             },
             completion: { finished in
-                UIView.animateWithDuration(rotationSpeed,
+                UIView.animate(withDuration: rotationSpeed,
                     delay: 0.0,
                     options: [],
                     animations: {
-                        self.carView.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(0)))
+                        self.heroView.transform = CGAffineTransform(rotationAngle: CGFloat(self.DEGREES_TO_RADIANS(0)))
                     },
                     completion: nil
                 )
@@ -183,18 +186,20 @@ class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDeleg
     
     func normalizeCarRotation()
     {
-        self.carView.transform = CGAffineTransformMakeRotation(CGFloat(self.DEGREES_TO_RADIANS(0)))
+        self.heroView.transform = CGAffineTransform(rotationAngle: CGFloat(self.DEGREES_TO_RADIANS(0)))
     }
     
     func stopCar() {
         self.normalizeCarRotation()
         
-        let layer:CALayer = self.carView.layer.presentationLayer() as! CALayer;
+        guard let layer = self.heroView.layer.presentation() else {
+            return
+        }
         
-        self.carView.layer.removeAllAnimations()
-        self.carView.frame.origin = layer.frame.origin;
+        self.heroView.layer.removeAllAnimations()
+        self.heroView.frame.origin = layer.frame.origin
     }
-    func moveCar(direction: Int) {
+    func moveCar(_ direction: Int) {
       //  self.carView.frame.origin.x += 5 * CGFloat(direction)
         self.carField += direction
         if self.carField > FIELDS_NUM-1 { self.carField = FIELDS_NUM-1 }
@@ -202,29 +207,29 @@ class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDeleg
         self.stopCar()
         
         //let nextX: CGFloat = CGFloat(self.carField) * COLUMN_WIDTH + COLUMN_WIDTH/2 - self.carView.frame.size.width/2
-        UIView.animateWithDuration(NSTimeInterval(CAR_SWIPE_SPEED), delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: {
+        UIView.animate(withDuration: TimeInterval(CAR_SWIPE_SPEED), delay: 0, options: UIViewAnimationOptions.curveLinear, animations: {
            self.updateHeroPosition()
         }, completion: nil)
     }
-    func moveCarToX(x: CGFloat) {
-        self.carView.center.x = x
+    func moveCarToX(_ x: CGFloat) {
+        self.heroView.center.x = x
     }
     
     func onTick() {
-        if (carView.layer.presentationLayer() != nil && obstacleBehaviour.testHitRect(carView.layer.presentationLayer()!.frame)) {
+        if (heroView.layer.presentation() != nil && obstacleBehaviour.testHitRect(heroView.layer.presentation()!.frame)) {
             self.gameOver()
         } else {
             self.bonusManager.gameSpeed = self.obstacleBehaviour.getFallingSpeed()
-            self.bonusManager.tick(self.carView)
+            self.bonusManager.tick(self.heroView)
             
             self.scoreLabel.text = String(self.obstacleBehaviour.fallsNum)
             
             if (self.moving)
             {
-                self.carView.center.x += CGFloat(self.movingDirection) * CAR_SPEED
-                if self.carView.center.x < 50 { self.carView.center.x = 50 }
+                self.heroView.center.x += CGFloat(self.movingDirection) * CAR_SPEED
+                if self.heroView.center.x < 50 { self.heroView.center.x = 50 }
                 let rightEdge = self.view.frame.size.width - 50
-                if self.carView.center.x > rightEdge { self.carView.center.x = rightEdge }
+                if self.heroView.center.x > rightEdge { self.heroView.center.x = rightEdge }
                 
             }
         }
@@ -233,7 +238,7 @@ class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDeleg
     
     // Bonus manager delegate
     
-    func energyPicked(bounsAmount: Int) {
+    func energyPicked(_ bounsAmount: Int) {
         self.energyManager.appendEnergy(bounsAmount, startIfStopped: true)
     }
     
@@ -260,23 +265,24 @@ class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDeleg
         self.stopAllAnimations()
         self.removeRecognizers()
 
-        let tap = UITapGestureRecognizer(target :self, action:Selector("restartGame"));
+        let tap = UITapGestureRecognizer(target :self, action:#selector(ViewController.restartGame));
         self.roadView.addGestureRecognizer(tap)
     }
     
     func stopAllAnimations() {
         self.stopCar()
+        self.heroView.stopAnimating()
     }
     
     func roadFieldWidth() -> CGFloat {
-        return self.view.frame.size.width / CGFloat(FIELDS_NUM)
+        return self.roadView.frame.size.width / CGFloat(FIELDS_NUM)
     }
     
     func updateHeroPosition() {
-        self.carView.center.x = self.getHeroXByFieldIndex(self.carField)
+        self.heroView.center.x = self.getHeroXByFieldIndex(self.carField)
     }
     
-    func getHeroXByFieldIndex(fieldIndex: Int) -> CGFloat {
+    func getHeroXByFieldIndex(_ fieldIndex: Int) -> CGFloat {
         return CGFloat(fieldIndex) * self.roadFieldWidth() + self.roadFieldWidth() / 2
     }
 

@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C4310F51C0809100076210E /* obstacle1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C4310E71C0809100076210E /* obstacle1@2x.png */; };
+		2C4310F61C0809100076210E /* obstacle2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C4310E81C0809100076210E /* obstacle2@2x.png */; };
+		2C4310F71C0809100076210E /* obstacle3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C4310E91C0809100076210E /* obstacle3@2x.png */; };
+		2C4310F81C0809100076210E /* road@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C4310EA1C0809100076210E /* road@2x.png */; };
+		2C4310FB1C080C5C0076210E /* HeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4310FA1C080C5C0076210E /* HeroView.swift */; };
+		2C4311071C080F870076210E /* car0001@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C4310FD1C080F870076210E /* car0001@2x.png */; };
+		2C4311081C080F870076210E /* car0002@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C4310FE1C080F870076210E /* car0002@2x.png */; };
+		2C4311091C080F870076210E /* car0003@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C4310FF1C080F870076210E /* car0003@2x.png */; };
+		2C43110A1C080F870076210E /* car0004@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C4311001C080F870076210E /* car0004@2x.png */; };
+		2C43110B1C080F870076210E /* car0005@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C4311011C080F870076210E /* car0005@2x.png */; };
+		2C43110C1C080F870076210E /* car0006@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C4311021C080F870076210E /* car0006@2x.png */; };
+		2C43110D1C080F870076210E /* car0007@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C4311031C080F870076210E /* car0007@2x.png */; };
+		2C43110E1C080F870076210E /* car0008@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C4311041C080F870076210E /* car0008@2x.png */; };
+		2C43110F1C080F870076210E /* car0009@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C4311051C080F870076210E /* car0009@2x.png */; };
+		2C4311101C080F870076210E /* car0010@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C4311061C080F870076210E /* car0010@2x.png */; };
 		2C6AA0891A87CE4000F2DA1D /* radio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2C6AA0881A87CE4000F2DA1D /* radio.mp3 */; };
 		2C89607E1BFDA639004D8202 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C89606E1BFDA639004D8202 /* AppDelegate.swift */; };
 		2C89607F1BFDA639004D8202 /* BonusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8960701BFDA639004D8202 /* BonusManager.swift */; };
@@ -24,9 +39,6 @@
 		327B67551A0A1EF5006B2745 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 327B67541A0A1EF5006B2745 /* Images.xcassets */; };
 		327B67581A0A1EF5006B2745 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 327B67561A0A1EF5006B2745 /* LaunchScreen.xib */; };
 		327B67641A0A1EF5006B2745 /* FoggyRaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B67631A0A1EF5006B2745 /* FoggyRaceTests.swift */; };
-		32D2B8EA1A95FCFC00757272 /* bkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D2B8E91A95FCFC00757272 /* bkg.png */; };
-		32D2B8EC1A95FD0600757272 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D2B8EB1A95FD0600757272 /* enemy.png */; };
-		32D2B8EE1A95FD0D00757272 /* hero.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D2B8ED1A95FD0D00757272 /* hero.png */; };
 		32D2B8F01A95FD6B00757272 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D2B8EF1A95FD6B00757272 /* line.png */; };
 		32EE6C671A9A50EA00AC995A /* battery_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 32EE6C651A9A50EA00AC995A /* battery_empty.png */; };
 		32EE6C681A9A50EA00AC995A /* battery_bonus.png in Resources */ = {isa = PBXBuildFile; fileRef = 32EE6C661A9A50EA00AC995A /* battery_bonus.png */; };
@@ -43,6 +55,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C4310E71C0809100076210E /* obstacle1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "obstacle1@2x.png"; sourceTree = "<group>"; };
+		2C4310E81C0809100076210E /* obstacle2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "obstacle2@2x.png"; sourceTree = "<group>"; };
+		2C4310E91C0809100076210E /* obstacle3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "obstacle3@2x.png"; sourceTree = "<group>"; };
+		2C4310EA1C0809100076210E /* road@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "road@2x.png"; sourceTree = "<group>"; };
+		2C4310FA1C080C5C0076210E /* HeroView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroView.swift; sourceTree = "<group>"; };
+		2C4310FD1C080F870076210E /* car0001@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "car0001@2x.png"; sourceTree = "<group>"; };
+		2C4310FE1C080F870076210E /* car0002@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "car0002@2x.png"; sourceTree = "<group>"; };
+		2C4310FF1C080F870076210E /* car0003@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "car0003@2x.png"; sourceTree = "<group>"; };
+		2C4311001C080F870076210E /* car0004@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "car0004@2x.png"; sourceTree = "<group>"; };
+		2C4311011C080F870076210E /* car0005@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "car0005@2x.png"; sourceTree = "<group>"; };
+		2C4311021C080F870076210E /* car0006@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "car0006@2x.png"; sourceTree = "<group>"; };
+		2C4311031C080F870076210E /* car0007@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "car0007@2x.png"; sourceTree = "<group>"; };
+		2C4311041C080F870076210E /* car0008@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "car0008@2x.png"; sourceTree = "<group>"; };
+		2C4311051C080F870076210E /* car0009@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "car0009@2x.png"; sourceTree = "<group>"; };
+		2C4311061C080F870076210E /* car0010@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "car0010@2x.png"; sourceTree = "<group>"; };
 		2C6AA0881A87CE4000F2DA1D /* radio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = radio.mp3; sourceTree = "<group>"; };
 		2C89606E1BFDA639004D8202 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C8960701BFDA639004D8202 /* BonusManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusManager.swift; sourceTree = "<group>"; };
@@ -64,10 +91,6 @@
 		327B675D1A0A1EF5006B2745 /* FoggyRaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoggyRaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		327B67621A0A1EF5006B2745 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		327B67631A0A1EF5006B2745 /* FoggyRaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoggyRaceTests.swift; sourceTree = "<group>"; };
-		32B3D8741A4D8FEC00D3B563 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		32D2B8E91A95FCFC00757272 /* bkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bkg.png; sourceTree = "<group>"; };
-		32D2B8EB1A95FD0600757272 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
-		32D2B8ED1A95FD0D00757272 /* hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hero.png; sourceTree = "<group>"; };
 		32D2B8EF1A95FD6B00757272 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
 		32EE6C651A9A50EA00AC995A /* battery_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = battery_empty.png; sourceTree = "<group>"; };
 		32EE6C661A9A50EA00AC995A /* battery_bonus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = battery_bonus.png; sourceTree = "<group>"; };
@@ -91,9 +114,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C4310DB1C0809100076210E /* animations */ = {
+			isa = PBXGroup;
+			children = (
+				2C4310FC1C080F870076210E /* car */,
+			);
+			path = animations;
+			sourceTree = "<group>";
+		};
+		2C4310F91C080C410076210E /* hero */ = {
+			isa = PBXGroup;
+			children = (
+				2C4310FA1C080C5C0076210E /* HeroView.swift */,
+			);
+			path = hero;
+			sourceTree = "<group>";
+		};
+		2C4310FC1C080F870076210E /* car */ = {
+			isa = PBXGroup;
+			children = (
+				2C4310FD1C080F870076210E /* car0001@2x.png */,
+				2C4310FE1C080F870076210E /* car0002@2x.png */,
+				2C4310FF1C080F870076210E /* car0003@2x.png */,
+				2C4311001C080F870076210E /* car0004@2x.png */,
+				2C4311011C080F870076210E /* car0005@2x.png */,
+				2C4311021C080F870076210E /* car0006@2x.png */,
+				2C4311031C080F870076210E /* car0007@2x.png */,
+				2C4311041C080F870076210E /* car0008@2x.png */,
+				2C4311051C080F870076210E /* car0009@2x.png */,
+				2C4311061C080F870076210E /* car0010@2x.png */,
+			);
+			path = car;
+			sourceTree = "<group>";
+		};
 		2C89606D1BFDA639004D8202 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2C4310F91C080C410076210E /* hero */,
 				2C89606E1BFDA639004D8202 /* AppDelegate.swift */,
 				2C89606F1BFDA639004D8202 /* bonus */,
 				2C8960721BFDA639004D8202 /* energy */,
@@ -152,7 +209,6 @@
 		327B673F1A0A1EF5006B2745 = {
 			isa = PBXGroup;
 			children = (
-				32B3D8741A4D8FEC00D3B563 /* QuartzCore.framework */,
 				327B674A1A0A1EF5006B2745 /* FoggyRace */,
 				327B67601A0A1EF5006B2745 /* FoggyRaceTests */,
 				327B67491A0A1EF5006B2745 /* Products */,
@@ -209,14 +265,16 @@
 		327B676D1A0A4167006B2745 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2C4310DB1C0809100076210E /* animations */,
+				2C4310E71C0809100076210E /* obstacle1@2x.png */,
+				2C4310E81C0809100076210E /* obstacle2@2x.png */,
+				2C4310E91C0809100076210E /* obstacle3@2x.png */,
+				2C4310EA1C0809100076210E /* road@2x.png */,
 				2C89608C1BFDA808004D8202 /* patterns */,
 				32EE6C651A9A50EA00AC995A /* battery_empty.png */,
 				32EE6C661A9A50EA00AC995A /* battery_bonus.png */,
 				2C6AA0881A87CE4000F2DA1D /* radio.mp3 */,
-				32D2B8ED1A95FD0D00757272 /* hero.png */,
 				32D2B8EF1A95FD6B00757272 /* line.png */,
-				32D2B8EB1A95FD0600757272 /* enemy.png */,
-				32D2B8E91A95FCFC00757272 /* bkg.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -267,15 +325,17 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Glowman;
 				TargetAttributes = {
 					327B67471A0A1EF5006B2745 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = Q329V6GPTU;
+						LastSwiftMigration = 0810;
+						ProvisioningStyle = Manual;
 					};
 					327B675C1A0A1EF5006B2745 = {
 						CreatedOnToolsVersion = 6.1;
+						LastSwiftMigration = 0810;
 						TestTargetID = 327B67471A0A1EF5006B2745;
 					};
 				};
@@ -304,14 +364,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32D2B8EA1A95FCFC00757272 /* bkg.png in Resources */,
-				32D2B8EC1A95FD0600757272 /* enemy.png in Resources */,
+				2C4310F51C0809100076210E /* obstacle1@2x.png in Resources */,
+				2C43110E1C080F870076210E /* car0008@2x.png in Resources */,
+				2C4311091C080F870076210E /* car0003@2x.png in Resources */,
+				2C43110B1C080F870076210E /* car0005@2x.png in Resources */,
 				327B67531A0A1EF5006B2745 /* Main.storyboard in Resources */,
+				2C4310F71C0809100076210E /* obstacle3@2x.png in Resources */,
+				2C4311101C080F870076210E /* car0010@2x.png in Resources */,
+				2C4311071C080F870076210E /* car0001@2x.png in Resources */,
+				2C43110A1C080F870076210E /* car0004@2x.png in Resources */,
+				2C43110C1C080F870076210E /* car0006@2x.png in Resources */,
 				327B67581A0A1EF5006B2745 /* LaunchScreen.xib in Resources */,
 				32EE6C681A9A50EA00AC995A /* battery_bonus.png in Resources */,
 				2C89608E1BFDA808004D8202 /* road_patterns.json in Resources */,
 				327B67551A0A1EF5006B2745 /* Images.xcassets in Resources */,
-				32D2B8EE1A95FD0D00757272 /* hero.png in Resources */,
+				2C4310F61C0809100076210E /* obstacle2@2x.png in Resources */,
+				2C4311081C080F870076210E /* car0002@2x.png in Resources */,
+				2C4310F81C0809100076210E /* road@2x.png in Resources */,
+				2C43110F1C080F870076210E /* car0009@2x.png in Resources */,
+				2C43110D1C080F870076210E /* car0007@2x.png in Resources */,
 				32D2B8F01A95FD6B00757272 /* line.png in Resources */,
 				2C6AA0891A87CE4000F2DA1D /* radio.mp3 in Resources */,
 				32EE6C671A9A50EA00AC995A /* battery_empty.png in Resources */,
@@ -334,6 +405,7 @@
 			files = (
 				2C8960801BFDA639004D8202 /* BonusView.swift in Sources */,
 				2C89607E1BFDA639004D8202 /* AppDelegate.swift in Sources */,
+				2C4310FB1C080C5C0076210E /* HeroView.swift in Sources */,
 				2C89608B1BFDA75D004D8202 /* ObstaclePatternFactory.swift in Sources */,
 				2C8960881BFDA639004D8202 /* RoadLinesView.swift in Sources */,
 				2C89607F1BFDA639004D8202 /* BonusManager.swift in Sources */,
@@ -397,17 +469,20 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Dmitry Kirakosyan (E4FQGRSSA4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dmitry Kirakosyan (E4FQGRSSA4)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -423,9 +498,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "2c851033-6aa3-4152-932b-c2371f2f684a";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -443,16 +519,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Dmitry Kirakosyan (E4FQGRSSA4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dmitry Kirakosyan (E4FQGRSSA4)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -461,8 +540,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "2c851033-6aa3-4152-932b-c2371f2f684a";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -473,14 +554,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Dmitry Kirakosyan (E4FQGRSSA4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FoggyRace/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.glowman.foggyrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2c851033-6aa3-4152-932b-c2371f2f684a";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -489,14 +573,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Dmitry Kirakosyan (E4FQGRSSA4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FoggyRace/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.glowman.foggyrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2c851033-6aa3-4152-932b-c2371f2f684a";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -504,6 +591,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -516,6 +604,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.glowman.foggyrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoggyRace.app/FoggyRace";
 			};
 			name = Debug;
@@ -524,6 +614,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -532,6 +623,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.glowman.foggyrace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoggyRace.app/FoggyRace";
 			};
 			name = Release;

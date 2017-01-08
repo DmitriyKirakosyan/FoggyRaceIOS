@@ -26,7 +26,7 @@ class EnergyManager: NSObject {
     let MAX_ENERGY = 25
     let REDUCE_SPEED = 1
     
-    var reduceEnergyTimer: NSTimer?
+    var reduceEnergyTimer: Timer?
     
     var delegate: EnergyManagerDelegate?
     
@@ -48,7 +48,7 @@ class EnergyManager: NSObject {
         }
     }
     
-    func appendEnergy(amount: Int, startIfStopped: Bool) {
+    func appendEnergy(_ amount: Int, startIfStopped: Bool) {
         let oldEnergy = self.currentEnergy
         self.currentEnergy += amount
         if self.currentEnergy > MAX_ENERGY { self.currentEnergy = MAX_ENERGY }
@@ -65,7 +65,7 @@ class EnergyManager: NSObject {
     }
     
     func run() {
-        self.reduceEnergyTimer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(REDUCE_SPEED), target: self, selector: Selector("onTimer"), userInfo: nil, repeats: true)
+        self.reduceEnergyTimer = Timer.scheduledTimer(timeInterval: TimeInterval(REDUCE_SPEED), target: self, selector: #selector(EnergyManager.onTimer), userInfo: nil, repeats: true)
     }
     
     func stop() {
@@ -90,7 +90,7 @@ class EnergyManager: NSObject {
         self.maxEnergyViewWidth = energyContainerView.frame.size.width - 30
         let energyFrame = CGRect(x: 20, y: energyContainerView.frame.size.height/4, width: maxEnergyViewWidth, height: energyContainerView.frame.size.height / 2)
         self.energyView = UIView(frame: energyFrame)
-        self.energyView.backgroundColor = UIColor.redColor()
+        self.energyView.backgroundColor = UIColor.red
 
         self.energyContainerView.addSubview(self.energyView)
     }
@@ -103,7 +103,7 @@ class EnergyManager: NSObject {
     
     func onTimer() {
         if (self.currentEnergy > 0) {
-            self.currentEnergy--
+            self.currentEnergy -= 1
             self.updateEnergyView()
         } else {
             self.stop()

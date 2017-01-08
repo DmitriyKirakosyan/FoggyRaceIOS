@@ -9,8 +9,8 @@
 import Foundation
 
 class RoadPattern: NSObject {
-    private var _data: NSDictionary;
-    private var _obstacleData: NSDictionary;
+    fileprivate var _data: NSDictionary;
+    fileprivate var _obstacleData: NSDictionary;
     
     init(data: NSDictionary)
     {
@@ -18,11 +18,11 @@ class RoadPattern: NSObject {
         _obstacleData = _data["obstacles"] as! NSDictionary;
     }
     
-    func containsLine(lineIndex: Int) -> Bool {
+    func containsLine(_ lineIndex: Int) -> Bool {
         return lineIndex < _obstacleData.count;
     }
     
-    func getObstaclePositionsForLine(lineIndex: Int) -> Array<Int> {
+    func getObstaclePositionsForLine(_ lineIndex: Int) -> Array<Int> {
         return _obstacleData[String(lineIndex)] as! Array<Int>
     }
 }
