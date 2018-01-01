@@ -49,7 +49,7 @@ class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDeleg
 
 
     
-    func DEGREES_TO_RADIANS(_ x: Float) -> Float { return Float(M_PI) * x / 180.0 }
+    func DEGREES_TO_RADIANS(_ x: Float) -> Float { return .pi * x / 180.0 }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +85,7 @@ class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDeleg
         self.heroView.startAnimating()
     }
     
-    func restartGame() {
+    @objc func restartGame() {
         self.removeRecognizers()
         
         self.obstacleBehaviour.clean()
@@ -161,7 +161,7 @@ class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDeleg
     }
 
     
-    func handleSwipe(_ swipe: UISwipeGestureRecognizer) {
+    @objc func handleSwipe(_ swipe: UISwipeGestureRecognizer) {
         let direction = swipe.direction == UISwipeGestureRecognizerDirection.left ? -1 : 1
         self.moveCar(direction)
         let rotationSpeed = TimeInterval(CAR_SWIPE_SPEED)
@@ -215,7 +215,7 @@ class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDeleg
         self.heroView.center.x = x
     }
     
-    func onTick() {
+    @objc func onTick() {
         if (heroView.layer.presentation() != nil && obstacleBehaviour.testHitRect(heroView.layer.presentation()!.frame)) {
             self.gameOver()
         } else {

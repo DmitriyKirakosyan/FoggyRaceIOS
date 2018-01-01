@@ -101,7 +101,7 @@ class BonusManager: NSObject {
     }
 
     
-    func onBonusReadyTimer() {
+    @objc func onBonusReadyTimer() {
         self.shootBonus()
     }
     

@@ -101,7 +101,7 @@ class EnergyManager: NSObject {
     }
     
     
-    func onTimer() {
+    @objc func onTimer() {
         if (self.currentEnergy > 0) {
             self.currentEnergy -= 1
             self.updateEnergyView()

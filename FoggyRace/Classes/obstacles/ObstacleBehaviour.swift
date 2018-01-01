@@ -33,7 +33,7 @@ class ObstacleBehaviour: UIView {
     fileprivate var _currentPatternLine: Int = 0;
     
     
-    func DEGREES_TO_RADIANS(_ x: Float) -> Float { return Float(M_PI) * x / 180.0 }
+    func DEGREES_TO_RADIANS(_ x: Float) -> Float { return .pi * x / 180.0 }
 
     
     convenience init(roadView: UIView, linesNum: Int) {
@@ -123,7 +123,7 @@ class ObstacleBehaviour: UIView {
         self.reduceSpeedTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ObstacleBehaviour.reduceSpeed), userInfo: nil, repeats: true)
     }
     
-    func onTimer() {
+    @objc func onTimer() {
         if (!stopped) {
             self.shootObstacle()
             let timerSelector: Selector = #selector(ObstacleBehaviour.onTimer)
@@ -193,7 +193,7 @@ class ObstacleBehaviour: UIView {
         return CGRect(x: 0, y: 0, width: obstacleWidth, height: obstacleWidth)
     }
 
-    func reduceSpeed() {
+    @objc func reduceSpeed() {
         currentSpeed -= REDUCE_SPEED_FACTOR
         currentFallingSpeed -= REDUCE_FALLING_SPEED
         
