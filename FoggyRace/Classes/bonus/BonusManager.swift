@@ -73,9 +73,8 @@ class BonusManager: NSObject {
     //private
     
     func shootBonus(){
-        let bonus = BonusView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        let bonus = BonusView(frame: getBonusFrame())
         bonuses.append(bonus)
-        
         
         let line: Int = Int(arc4random() % UInt32(self.fieldsNum))
         bonus.frame.origin.y = -bonus.frame.size.height
@@ -92,6 +91,13 @@ class BonusManager: NSObject {
             }
         )
     }
+    
+    func getBonusFrame() -> CGRect {
+        let obstacleWidth = getFieldWidth()
+        
+        return CGRect(x: 0, y: 0, width: obstacleWidth, height: obstacleWidth)
+    }
+
     
     func removeBonus(_ bonus: BonusView) {
         bonus.removeFromSuperview()

@@ -164,14 +164,10 @@ class ObstacleBehaviour: UIView {
                     if obstacle.frame.origin.y > self.roadView.frame.size.height-20 {
                         self.removeObstacle(obstacle)
                     }
-                    
                 }
             )
         }
     }
-    
-    
-    
     
     func removeObstacle(_ obstacle: UIView) {
         obstacle.removeFromSuperview()
@@ -184,8 +180,6 @@ class ObstacleBehaviour: UIView {
         
         return result
     }
-    
-    
     
     func getObstacleFrame() -> CGRect {
         let obstacleWidth = roadView.frame.size.width / CGFloat(linesNum)
@@ -202,8 +196,9 @@ class ObstacleBehaviour: UIView {
     }
     
     func getObstacleLineTimeInterval() -> TimeInterval {
+        let fallingFrameHeight = 20 + self.getObstacleFrame().height
         let timeInterval: CGFloat = currentFallingSpeed /
-                                    ((self.roadView.frame.size.height + 20) / self.getObstacleFrame().height);
+                                    ((self.roadView.frame.size.height) / fallingFrameHeight);
         return TimeInterval(timeInterval)
     }
     

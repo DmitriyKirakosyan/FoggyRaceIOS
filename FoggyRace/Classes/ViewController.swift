@@ -55,7 +55,7 @@ class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDeleg
         super.viewDidLoad()
         backgroundMusic.play()
         
-        self.bonusManager = BonusManager(stageView: self.view, fieldsNum: FIELDS_NUM)
+        self.bonusManager = BonusManager(stageView: self.roadView, fieldsNum: FIELDS_NUM)
         self.bonusManager.delegate = self
         self.energyManager = EnergyManager(stageView: self.view)
         self.energyManager.delegate = self
@@ -150,8 +150,6 @@ class ViewController: UIViewController, BonusManagerDelegate, EnergyManagerDeleg
         heroView = HeroView()
         let heroSize = roadView.frame.size.width / CGFloat(FIELDS_NUM)
         heroView.frame = CGRect(x: 0, y: 0, width: heroSize, height: heroSize)
-        
-//        heroView.backgroundColor = .red
         
         self.updateHeroPosition()
         

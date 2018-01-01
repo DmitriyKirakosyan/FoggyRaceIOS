@@ -27,7 +27,7 @@ class RoadLinesView: UIView {
         for i in 0..<linesNum-1 {
             let gapSize:CGFloat = self.frame.size.width / CGFloat(linesNum)
 
-            let line = AnimatedLineView(frame: CGRect(x: gapSize + CGFloat(i) * gapSize, y: 0, width: 4, height: self.frame.height))
+            let line = AnimatedLineView(frame: CGRect(x: gapSize + CGFloat(i) * gapSize - 2, y: 0, width: 4, height: self.frame.height))
             lines.append(line)
             self.addSubview(line)
         }
